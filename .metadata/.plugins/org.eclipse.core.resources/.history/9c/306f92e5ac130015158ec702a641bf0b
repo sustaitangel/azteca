@@ -1,0 +1,29 @@
+package Conexiones;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Conexion {
+	Connection conect = null;
+	   public Connection conexion(JTextField hola)
+	    {
+		   String Cadena;
+		   try{
+			   BufferReader bf=new BufferReader()
+		   }catch(Exception e){
+			   
+		   }
+	      try {  
+	           //Cargamos el Driver MySQL
+	           Class.forName("org.gjt.mm.mysql.Driver");
+	           conect = DriverManager.getConnection("jdbc:mysql://localhost/todoparallevar","root","noentrar");
+	        } catch (Exception e) {
+	            JOptionPane.showMessageDialog(hola, "Error"+e);
+	        }
+	        return conect;
+	    }
+
+}

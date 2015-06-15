@@ -1,0 +1,80 @@
+package Panel;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.SystemColor;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class Config extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Config frame = new Config();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Config() {
+		setTitle("--Configuraci\u00F3n de Base de Datos--");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.textHighlightText);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblTipoDeInstalacin = new JLabel("Tipo de Instalaci\u00F3n");
+		lblTipoDeInstalacin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblTipoDeInstalacin.setForeground(new Color(128, 0, 0));
+		lblTipoDeInstalacin.setBounds(10, 11, 127, 25);
+		contentPane.add(lblTipoDeInstalacin);
+		
+		JRadioButton rdbtnServidor = new JRadioButton("Servidor");
+		rdbtnServidor.setBackground(new Color(255, 255, 255));
+		rdbtnServidor.setBounds(10, 39, 109, 23);
+		contentPane.add(rdbtnServidor);
+		
+		JRadioButton rdbtnCliente = new JRadioButton("Cliente");
+		rdbtnCliente.setBackground(new Color(255, 255, 255));
+		rdbtnCliente.setBounds(121, 39, 109, 23);
+		contentPane.add(rdbtnCliente);
+		
+		JLabel lblDireccinDelServidor = new JLabel("Direcci\u00F3n del Servidor");
+		lblDireccinDelServidor.setBounds(10, 83, 109, 14);
+		contentPane.add(lblDireccinDelServidor);
+		
+		textField = new JTextField();
+		textField.setToolTipText("Generalmente el servidor locacl tiene la siguiente direcci\u00F3n \"127.0.0.1\" sin comillas");
+		textField.setBounds(129, 80, 101, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblDireccionIpfija = new JLabel("Direccion IP (fija) del ");
+		lblDireccionIpfija.setBounds(10, 119, 46, 14);
+		contentPane.add(lblDireccionIpfija);
+	}
+}

@@ -2,6 +2,7 @@ package Principal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,9 +15,15 @@ import Imagenes.Img;
 
 import java.awt.Color;
 
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
+
 public class PanelPrincipal extends JFrame {
 
 	private JDesktopPane contentPane;
+	JLabel lblHora;
+	RelojFecha relojFecha = new RelojFecha();
 
 	/**
 	 * Launch the application.
@@ -41,19 +48,73 @@ public class PanelPrincipal extends JFrame {
 	public PanelPrincipal() {
 		setTitle("--Viajes Azteca--");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 610);
+		setBounds(100, 100, 837, 772);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Reservaciones");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNuevaReservacion = new JMenuItem("Nueva Reservaci\u00F3n");
+		mntmNuevaReservacion.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/travel.png")));
+		mnNewMenu.add(mntmNuevaReservacion);
+		
+		JMenuItem mntmCancelarReservacion = new JMenuItem("Cancelar Reservaci\u00F3n");
+		mntmCancelarReservacion.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/cancel_travel.png")));
+		mnNewMenu.add(mntmCancelarReservacion);
+		
+		JMenu mnAgenda = new JMenu("Agenda");
+		menuBar.add(mnAgenda);
+		
+		JMenuItem mntmAgendarSalidaNacional = new JMenuItem("Agendar Salida Nacional");
+		mntmAgendarSalidaNacional.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/calendar.png")));
+		mnAgenda.add(mntmAgendarSalidaNacional);
+		
+		JMenuItem mntmVeragenda = new JMenuItem("Ver Agenda");
+		mntmVeragenda.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/find.png")));
+		mnAgenda.add(mntmVeragenda);
+		
+		JMenu mnCamiones = new JMenu("Camiones");
+		menuBar.add(mnCamiones);
+		
+		JMenu mnAltas = new JMenu("Clientes");
+		menuBar.add(mnAltas);
+		
+		JMenuItem mntmAltaDeCliente = new JMenuItem("Alta de Cliente");
+		mnAltas.add(mntmAltaDeCliente);
+		
+		JMenuItem mntmAltaDeVendedores = new JMenuItem("Vista del Cliente");
+		mnAltas.add(mntmAltaDeVendedores);
+		
+		JMenu mnUsuarios = new JMenu("Usuarios");
+		menuBar.add(mnUsuarios);
+		
+		JMenu mnVendedores = new JMenu("Vendedores");
+		menuBar.add(mnVendedores);
 		contentPane = new JDesktopPane();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Img fondo=new Img();
 		JLabel lblNewLabel = new JLabel(fondo.fondo());
 		lblNewLabel.setBackground(new Color(255, 0, 0));
-		lblNewLabel.setBounds(214, 198, 975, 311);
+		lblNewLabel.setBounds(196, 197, 975, 311);
 		contentPane.add(lblNewLabel);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lblFecha = new JLabel("");
+		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 39));
+		lblFecha.setForeground(new Color(255, 0, 0));
+		lblFecha.setBounds(317, 560, 494, 43);
+		contentPane.add(lblFecha);
+		
+		relojFecha.fecha(lblFecha);
+		lblHora = new JLabel("");
+		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 43));
+		lblHora.setForeground(new Color(255, 0, 0));
+		lblHora.setBounds(767, 558, 249, 43);
+		contentPane.add(lblHora);
+		relojFecha.reloj(lblHora);
 	}
 }

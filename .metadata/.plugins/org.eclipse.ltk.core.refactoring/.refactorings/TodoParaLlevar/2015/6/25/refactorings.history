@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;RelojFecha.java&apos; to &apos;ViajesAzeca/src/Principal&apos;&#x0D;&#x0A;- Original project: &apos;TodoParaLlevar&apos;&#x0D;&#x0A;- Destination element: &apos;ViajesAzeca/src/Principal&apos;&#x0D;&#x0A;- Original element: &apos;Principal.RelojFecha.java&apos;" description="Copy compilation unit" destination="=ViajesAzeca/src&lt;Principal" element1="/src&lt;Principal{RelojFecha.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1434337113907" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,88 @@
+package Principal;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JDesktopPane;
+import javax.swing.JMenuBar;
+
+import Imagenes.Img;
+
+import java.awt.Color;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+public class PanelPrincipal extends JFrame {
+
+	private JDesktopPane contentPane;
+	JLabel lblHora;
+	RelojFecha relojFecha = new RelojFecha();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PanelPrincipal frame = new PanelPrincipal();
+					frame.setVisible(true);
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public PanelPrincipal() {
+		setTitle("--Viajes Azteca--");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 837, 772);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Reservaciones");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNuevaReservacion = new JMenuItem("Nueva Reservacion");
+		mnNewMenu.add(mntmNuevaReservacion);
+		
+		JMenuItem mntmCancelarReservacion = new JMenuItem("Cancelar Reservacion");
+		mnNewMenu.add(mntmCancelarReservacion);
+		contentPane = new JDesktopPane();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Img fondo=new Img();
+		JLabel lblNewLabel = new JLabel(fondo.fondo());
+		lblNewLabel.setBackground(new Color(255, 0, 0));
+		lblNewLabel.setBounds(196, 197, 975, 311);
+		contentPane.add(lblNewLabel);
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblFecha = new JLabel("");
+		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 39));
+		lblFecha.setForeground(new Color(255, 0, 0));
+		lblFecha.setBounds(317, 560, 494, 43);
+		contentPane.add(lblFecha);
+		
+		relojFecha.fecha(lblFecha);
+		lblHora = new JLabel("");
+		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 43));
+		lblHora.setForeground(new Color(255, 0, 0));
+		lblHora.setBounds(767, 558, 249, 43);
+		contentPane.add(lblHora);
+		relojFecha.reloj(lblHora);
+	}
+}

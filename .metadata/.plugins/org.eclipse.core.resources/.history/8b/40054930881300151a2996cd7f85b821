@@ -104,20 +104,12 @@ public class PanelPrincipal extends JFrame {
 		JMenu mnUsuarios = new JMenu("Usuarios");
 		menuBar.add(mnUsuarios);
 		
-		JMenuItem mntmUsuarioDelSistema = new JMenuItem("Usuarios del Sistema");
+		JMenuItem mntmUsuarioDelSistema = new JMenuItem("Usuario del Sistema");
 		mntmUsuarioDelSistema.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/1434408957_user-id.png")));
 		mnUsuarios.add(mntmUsuarioDelSistema);
 		
 		JMenu mnVendedores = new JMenu("Vendedores");
 		menuBar.add(mnVendedores);
-		
-		JMenuItem mntmEstadsticas = new JMenuItem("Estad\u00EDsticas");
-		mntmEstadsticas.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/statistics.png")));
-		mnVendedores.add(mntmEstadsticas);
-		
-		JMenuItem mntmAltasModificaciones = new JMenuItem("Altas / Modificaciones");
-		mntmAltasModificaciones.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/client.png")));
-		mnVendedores.add(mntmAltasModificaciones);
 		
 		JMenu mnReportes = new JMenu("Reportes");
 		menuBar.add(mnReportes);

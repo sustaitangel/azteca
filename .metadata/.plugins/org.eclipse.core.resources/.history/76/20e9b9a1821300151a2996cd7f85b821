@@ -79,45 +79,28 @@ public class PanelPrincipal extends JFrame {
 		menuBar.add(mnCamiones);
 		
 		JMenuItem mntmAltasbajas = new JMenuItem("Altas / Bajas");
-		mntmAltasbajas.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/bus.png")));
 		mnCamiones.add(mntmAltasbajas);
 		
 		JMenuItem mntmMantenimiento = new JMenuItem("Mantenimiento");
-		mntmMantenimiento.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/tool.png")));
 		mnCamiones.add(mntmMantenimiento);
 		
 		JMenuItem mntmEstadisticas = new JMenuItem("Estad\u00EDsticas");
-		mntmEstadisticas.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/statistics.png")));
 		mnCamiones.add(mntmEstadisticas);
 		
 		JMenu mnAltas = new JMenu("Clientes");
 		menuBar.add(mnAltas);
 		
 		JMenuItem mntmAltaDeCliente = new JMenuItem("Alta de Cliente");
-		mntmAltaDeCliente.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/client.png")));
 		mnAltas.add(mntmAltaDeCliente);
 		
 		JMenuItem mntmAltaDeVendedores = new JMenuItem("Vista del Cliente");
-		mntmAltaDeVendedores.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/find.png")));
 		mnAltas.add(mntmAltaDeVendedores);
 		
 		JMenu mnUsuarios = new JMenu("Usuarios");
 		menuBar.add(mnUsuarios);
 		
-		JMenuItem mntmUsuarioDelSistema = new JMenuItem("Usuarios del Sistema");
-		mntmUsuarioDelSistema.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/1434408957_user-id.png")));
-		mnUsuarios.add(mntmUsuarioDelSistema);
-		
 		JMenu mnVendedores = new JMenu("Vendedores");
 		menuBar.add(mnVendedores);
-		
-		JMenuItem mntmEstadsticas = new JMenuItem("Estad\u00EDsticas");
-		mntmEstadsticas.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/statistics.png")));
-		mnVendedores.add(mntmEstadsticas);
-		
-		JMenuItem mntmAltasModificaciones = new JMenuItem("Altas / Modificaciones");
-		mntmAltasModificaciones.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/client.png")));
-		mnVendedores.add(mntmAltasModificaciones);
 		
 		JMenu mnReportes = new JMenu("Reportes");
 		menuBar.add(mnReportes);
@@ -134,15 +117,15 @@ public class PanelPrincipal extends JFrame {
 		
 		JLabel lblFecha = new JLabel("");
 		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 43));
-		lblFecha.setForeground(new Color(128, 0, 0));
-		lblFecha.setBounds(511, 158, 494, 43);
+		lblFecha.setForeground(new Color(255, 0, 0));
+		lblFecha.setBounds(497, 506, 494, 43);
 		contentPane.add(lblFecha);
 		
 		relojFecha.fecha(lblFecha);
 		lblHora = new JLabel("");
 		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 43));
-		lblHora.setForeground(new Color(128, 0, 0));
-		lblHora.setBounds(567, 518, 249, 43);
+		lblHora.setForeground(new Color(255, 0, 0));
+		lblHora.setBounds(568, 578, 249, 43);
 		contentPane.add(lblHora);
 		relojFecha.reloj(lblHora);
 	}

@@ -8,4 +8,8 @@ public class Img {
 		Icon fondo= new ImageIcon(getClass().getResource("LogoAzteca.jpg"));
 		return fondo;
 	}
+	public Icon login(){
+		Icon azteca= new ImageIcon(getClass().getResource("aztec1.png"));
+		return azteca;
+	}
 }

@@ -2,5 +2,16 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.swing.Icon"/>
 <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+<fullyQualifiedTypeName name="javax.swing.ButtonGroup"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="Conexiones.Leer"/>
+<fullyQualifiedTypeName name="Principal.PanelPrincipal"/>
+<fullyQualifiedTypeName name="Conexiones.Conexion"/>
+<fullyQualifiedTypeName name="Principal.Principal"/>
 <fullyQualifiedTypeName name="Imagenes.Img"/>
+<fullyQualifiedTypeName name="Principal.PanelPrincipal2"/>
+<fullyQualifiedTypeName name="Qwertys.IniSesion"/>
+<fullyQualifiedTypeName name="Login.Login"/>
 </qualifiedTypeNameHistroy>

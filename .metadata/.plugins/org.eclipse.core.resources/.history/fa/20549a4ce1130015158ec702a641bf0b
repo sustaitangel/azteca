@@ -1,0 +1,86 @@
+package Login;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+
+import Imagenes.Img;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Login() {
+		setTitle("--Viajes Azteca-- Iniciar Sesion");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(400, 100, 428, 198);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		Img n=new Img();
+		JLabel label = new JLabel(n.login());
+		label.setBounds(277, 11, 125, 129);
+		contentPane.add(label);
+		
+		JLabel lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setForeground(new Color(139, 0, 0));
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUsuario.setBackground(new Color(255, 255, 255));
+		lblUsuario.setBounds(10, 50, 77, 14);
+		contentPane.add(lblUsuario);
+		
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
+		lblContrasea.setForeground(new Color(139, 0, 0));
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblContrasea.setBounds(10, 90, 95, 14);
+		contentPane.add(lblContrasea);
+		
+		JLabel lblBienvendido = new JLabel("\u00A1\u00A1\u00A1Bienvendido!!!");
+		lblBienvendido.setForeground(new Color(128, 0, 0));
+		lblBienvendido.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblBienvendido.setBounds(152, 11, 125, 23);
+		contentPane.add(lblBienvendido);
+		
+		textField = new JTextField();
+		textField.setBounds(97, 49, 113, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(97, 89, 113, 20);
+		contentPane.add(passwordField);
+	}
+
+}

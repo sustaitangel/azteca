@@ -45,10 +45,6 @@ public class PanelUsuarios extends JInternalFrame {
 		tabbedPane.setBounds(10, 11, 626, 397);
 		AltaUsuarios n=new AltaUsuarios();
 		tabbedPane.addTab("Alta Usuarios",null,n,null);
-		
-		ModificarUsuario c=new ModificarUsuario();
-		tabbedPane.addTab("Modificar",null,c,null);
-		
 		getContentPane().add(tabbedPane);
 
 	}

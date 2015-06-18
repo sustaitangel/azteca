@@ -140,7 +140,7 @@ public class AltaUsuarios extends JPanel {
 				n.Limpiar(txtNombre, txtPass, txtPass1, txtAp_pat, txtAp_mat, txtUser);
 			}
 		});
-		btnCancelar.setIcon(new ImageIcon(AltaUsuarios.class.getResource("/Imagenes/cancel_travel.png")));
+		btnCancelar.setIcon(new ImageIcon(AltaUsuarios.class.getResource("/Imagenes/cancel1.png")));
 		btnCancelar.setBounds(457, 311, 131, 41);
 		add(btnCancelar);
 

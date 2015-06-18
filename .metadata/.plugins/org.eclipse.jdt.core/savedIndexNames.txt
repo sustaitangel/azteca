@@ -38,7 +38,6 @@ INDEX VERSION 1.127+C:\azteca\.metadata\.plugins\org.eclipse.jdt.core
 1559501272.index
 1299022128.index
 1190255899.index
-4198403558.index
 458681448.index
 816747183.index
 3229080451.index

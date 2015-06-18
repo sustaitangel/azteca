@@ -46,8 +46,8 @@ public class PanelUsuarios extends JInternalFrame {
 		AltaUsuarios n=new AltaUsuarios();
 		tabbedPane.addTab("Alta Usuarios",null,n,null);
 		
-		ModificarUsuario c=new ModificarUsuario();
-		tabbedPane.addTab("Modificar",null,c,null);
+		ModificarUsuario n=new ModificarUsuario();
+		tabbedPane.addTab("Modificar",null,n,null);
 		
 		getContentPane().add(tabbedPane);
 

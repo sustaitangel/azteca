@@ -57,7 +57,7 @@ public class AltaDtb {
 		}
 	}
 
-	public void Limpiar(JTextField txtNombre, JPasswordField txtPass,
+	private void Limpiar(JTextField txtNombre, JPasswordField txtPass,
 			JPasswordField txtPass1, JTextField txtAp_pat,
 			JTextField txtAp_mat, JTextField txtUser) {
 		txtNombre.setText("");

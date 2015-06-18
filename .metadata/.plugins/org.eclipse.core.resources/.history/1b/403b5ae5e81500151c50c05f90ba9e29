@@ -1,0 +1,14 @@
+package Usuarios;
+
+import javax.swing.JPanel;
+
+public class ModificarUsuario extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public ModificarUsuario() {
+
+	}
+
+}

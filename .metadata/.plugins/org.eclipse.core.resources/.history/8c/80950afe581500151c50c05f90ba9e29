@@ -134,13 +134,7 @@ public class AltaUsuarios extends JPanel {
 		add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AltaDtb n=new AltaDtb();
-				n.Limpiar(txtNombre, txtPass, txtPass1, txtAp_pat, txtAp_mat, txtUser);
-			}
-		});
-		btnCancelar.setIcon(new ImageIcon(AltaUsuarios.class.getResource("/Imagenes/cancel_travel.png")));
+		btnCancelar.setIcon(new ImageIcon(AltaUsuarios.class.getResource("/Imagenes/cancel1.png")));
 		btnCancelar.setBounds(457, 311, 131, 41);
 		add(btnCancelar);
 

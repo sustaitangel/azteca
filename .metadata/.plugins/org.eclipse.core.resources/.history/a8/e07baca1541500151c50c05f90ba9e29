@@ -1,0 +1,58 @@
+package Usuarios;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import Conexiones.Conexion;
+import Qwertys.Comunes;
+
+public class AltaDtb {
+	public void alta(JTextField txtNombre,JTextField txtAp_pat, 
+			JTextField txtAp_mat, JTextField txtUser, JPasswordField txtPass, JPasswordField txtPass1,int tipo){
+		Conexion cx=new Conexion();
+		Connection cn=cx.conexion();
+		Statement comando;
+		Comunes q=new Comunes();
+		if(txtNombre.getText().length()==0){
+			JOptionPane.showMessageDialog(txtPass, "Use Un Nombre de Usuario");
+		}else{
+			try{
+				comando=(Statement) cn.createStatement();
+				String existente= q.SelectWhere("*", "usuario", "usuario", txtNombre.getText())
+				ResultSet rs= ((java.sql.Statement) comando).executeQuery(existente);
+				if(rs.next()){
+					JOptionPane.showMessageDialog(txtNombre, "En nombre de usuario ya existe");
+				}else{
+					String pass= txtPass.getText();
+					if(txtPass.getText().equals(txtPass1.getText())){
+						EncriptacionPrincipal pasen=new EncriptacionPrincipal();
+						String PasEncriptado=pasen.encriptar(pass);
+						String campos="id_usuario, nombre, ape_paterno, ap_materno, perfil,usuario, password";
+						
+						String sqlGuardar=q.insertInto("usuario", campos, Valores);
+						comando.execute(sqlGuardar);
+						Icon echo;
+						echo=new ImageIcon("src/Imagenes/aplicar.png");
+						JOptionPane.showMessageDialog(txtUsuario,"Usuario agregado exitosamente","Guardado",JOptionPane.DEFAULT_OPTION,echo);
+						Limpiar(txtNombreUsuario, txtTel, txtNumero, txtContrasena, txtRepetirContrasena,
+								txtCalle, txtColonia, txtEmail, txtAmaterno, txtApaterno, txtUsuario);
+					}else{
+						JOptionPane.showMessageDialog(txtContrasena, "Las contraseñas no coinciden");
+					}
+					
+				}
+			}catch(SQLException e){
+				JOptionPane.showMessageDialog(txtContrasena, "Error "+e);
+			}
+			
+		}
+	}
+}

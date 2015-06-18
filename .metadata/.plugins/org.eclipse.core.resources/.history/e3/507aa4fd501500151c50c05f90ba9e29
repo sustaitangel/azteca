@@ -1,0 +1,12 @@
+package Qwertys;
+
+public class Comunes {
+	public String Select(String campos, String tabla){
+		String querty="SELECT "+campos+" FROM "+tabla;
+		return querty;
+	}
+	public String SelectWhere(String campos, String tabla, String comparador, String comparable){
+		String querty="SELECT "+campos+" FROM "+tabla +" WHERE "+comparador+" = "+comparable;
+		return querty;
+	}
+}

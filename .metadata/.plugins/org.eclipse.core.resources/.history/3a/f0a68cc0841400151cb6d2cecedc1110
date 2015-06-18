@@ -1,0 +1,66 @@
+package Usuarios;
+
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class AltaUsuarios extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+
+	/**
+	 * Create the panel.
+	 */
+	public AltaUsuarios() {
+		setBackground(new Color(255, 255, 255));
+		setLayout(null);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(10, 11, 71, 22);
+		add(lblNombre);
+		
+		JLabel lblApellidoPaterno = new JLabel("Apellido Paterno:");
+		lblApellidoPaterno.setBounds(10, 60, 102, 14);
+		add(lblApellidoPaterno);
+		
+		JLabel lblApellidoMaterno = new JLabel("Apellido Materno:");
+		lblApellidoMaterno.setBounds(10, 110, 102, 14);
+		add(lblApellidoMaterno);
+		
+		JLabel lblTipoDeUsuario = new JLabel("Nombre de Usuario:");
+		lblTipoDeUsuario.setBounds(10, 158, 102, 14);
+		add(lblTipoDeUsuario);
+		
+		JLabel lblPerfilDeUsuario = new JLabel("Contrase\u00F1a:");
+		lblPerfilDeUsuario.setBounds(10, 202, 102, 14);
+		add(lblPerfilDeUsuario);
+		
+		JLabel lblRepitaContrasea = new JLabel("Repita Contrase\u00F1a:");
+		lblRepitaContrasea.setBounds(10, 251, 102, 14);
+		add(lblRepitaContrasea);
+		
+		textField = new JTextField();
+		textField.setBounds(110, 12, 86, 20);
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(110, 57, 86, 20);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(110, 107, 86, 20);
+		add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(110, 155, 86, 20);
+		add(textField_3);
+		textField_3.setColumns(10);
+
+	}
+}

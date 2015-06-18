@@ -42,7 +42,7 @@ public class IniSesion {
 		}else{
 		String tipoUsuario=null;
 		Connection cx= n.conexion();
-		String sql="select * from usuarios where usuario='"+txtUsuario.getText()+"'";
+		String sql="select * from usuario where usuario='"+txtUsuario.getText()+"'";
 		Statement comando1;
 		
 		try {
@@ -52,7 +52,7 @@ public class IniSesion {
 			String pass=new String(pswContra.getPassword());
 			EncriptacionPrincipal encrip=new EncriptacionPrincipal();
 			String pasen=encrip.encriptar(pass);
-			String sql2="select * from usuarios where password='"+pasen+"'";
+			String sql2="select * from usuario where password='"+pasen+"'";
 			if(rs.next()){
 				System.out.println("3");
 				comando1.execute(sql2);
@@ -62,12 +62,12 @@ public class IniSesion {
 					echo=new ImageIcon("src/Imagenes/aztec1.png");
 					Img ob=new Img();
 					String nombre=rs.getString("nombre");
-					String apellido = rs.getString("apellido_paterno");
+					String apellido = rs.getString("ape_paterno");
 					String user=rs.getString("usuario");
 					loger=nombre + " " + apellido + " (" + user + ")";
 					loger1=user;
 					String bienvenida="Bienvenid@ ";
-					int tipo=rs.getInt("Perfil_id_perfil");
+					int tipo=rs.getInt("Perfil");
 					if(tipo==1){
 						JOptionPane.showMessageDialog(txtUsuario,bienvenida+nombre,"Bienvenido",JOptionPane.DEFAULT_OPTION,ob.login());
 						Principal prin=new Principal();

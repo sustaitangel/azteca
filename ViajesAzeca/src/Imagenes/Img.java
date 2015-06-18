@@ -12,4 +12,8 @@ public class Img {
 		Icon azteca= new ImageIcon(getClass().getResource("aztec1.png"));
 		return azteca;
 	}
+	public Icon user(){
+		Icon usuario= new ImageIcon(getClass().getResource("user.png"));
+		return usuario;
+	}
 }

@@ -5,9 +5,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import Qwertys.Comunes;
+import Usuarios.TipoUsuario;
 
 public class Conexion {
 	   Connection conect = null;
@@ -34,7 +41,7 @@ public class Conexion {
 			   }
 			   bandera=bandera+1;
 		   }
-		   String BasedeDatos="todoparallevar";
+		   String BasedeDatos="azteca";
 		   Cadena="jdbc:mysql://"+servidor+"/"+BasedeDatos;
 			}
 		   
@@ -54,5 +61,28 @@ public class Conexion {
 	        return conect;
 	    }
 	   }
-
+	   public ArrayList<TipoUsuario> obtenerTipos(){
+			
+			ArrayList listipos = new ArrayList();
+			Comunes q= new Comunes();
+			String sentencia=q.Select("descripcion", "perfil");
+			try{
+				Connection conexion=conexion();
+				Statement comando=conexion.createStatement();
+			
+				ResultSet registro = comando.executeQuery(sentencia);
+				String tipo;
+				while(registro.next()){
+					tipo=registro.getString(1);
+					TipoUsuario tipos= new TipoUsuario(tipo);
+					listipos.add(tipos);
+				}
+				registro.close();
+				comando.close();
+			}catch(SQLException ex){
+				JOptionPane.showMessageDialog(null, ex.getMessage());
+			}
+			return listipos;
+		}
+	   
 }

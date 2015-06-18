@@ -1,0 +1,107 @@
+package Usuarios;
+
+import javax.swing.JPanel;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
+
+import Imagenes.Img;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+
+public class AltaUsuarios extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
+
+	/**
+	 * Create the panel.
+	 */
+	public AltaUsuarios() {
+		setBackground(new Color(255, 255, 255));
+		setLayout(null);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(10, 11, 71, 22);
+		add(lblNombre);
+		
+		JLabel lblApellidoPaterno = new JLabel("Apellido Paterno:");
+		lblApellidoPaterno.setBounds(10, 60, 102, 14);
+		add(lblApellidoPaterno);
+		
+		JLabel lblApellidoMaterno = new JLabel("Apellido Materno:");
+		lblApellidoMaterno.setBounds(10, 110, 102, 14);
+		add(lblApellidoMaterno);
+		
+		JLabel lblTipoDeUsuario = new JLabel("Nombre de Usuario:");
+		lblTipoDeUsuario.setBounds(10, 158, 102, 14);
+		add(lblTipoDeUsuario);
+		
+		JLabel lblPerfilDeUsuario = new JLabel("Contrase\u00F1a:");
+		lblPerfilDeUsuario.setBounds(10, 202, 102, 14);
+		add(lblPerfilDeUsuario);
+		
+		JLabel lblRepitaContrasea = new JLabel("Repita Contrase\u00F1a:");
+		lblRepitaContrasea.setBounds(10, 251, 102, 14);
+		add(lblRepitaContrasea);
+		
+		textField = new JTextField();
+		textField.setBounds(140, 12, 130, 20);
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(140, 57, 130, 20);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(140, 107, 130, 20);
+		add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(140, 155, 130, 20);
+		add(textField_3);
+		textField_3.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(140, 199, 130, 20);
+		add(passwordField);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(140, 248, 130, 20);
+		add(passwordField_1);
+		
+		JLabel lblPerfilDeUsuario_1 = new JLabel("Perfil de Usuario:");
+		lblPerfilDeUsuario_1.setBounds(10, 294, 86, 14);
+		add(lblPerfilDeUsuario_1);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(140, 291, 130, 20);
+		add(comboBox);
+		
+		Img n=new Img();
+		JLabel lblNewLabel = new JLabel(n.user());
+		lblNewLabel.setBounds(335, 0, 164, 283);
+		add(lblNewLabel);
+		
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setIcon(new ImageIcon(AltaUsuarios.class.getResource("/Imagenes/done.png")));
+		btnGuardar.setBounds(296, 311, 119, 41);
+		add(btnGuardar);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(AltaUsuarios.class.getResource("/Imagenes/cancel1.png")));
+		btnCancelar.setBounds(426, 311, 131, 41);
+		add(btnCancelar);
+
+	}
+}

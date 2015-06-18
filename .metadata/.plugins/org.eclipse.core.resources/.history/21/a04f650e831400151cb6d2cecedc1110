@@ -1,0 +1,14 @@
+package Usuarios;
+
+import javax.swing.JPanel;
+
+public class AltaUsuarios extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public AltaUsuarios() {
+
+	}
+
+}

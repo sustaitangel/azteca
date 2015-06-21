@@ -98,6 +98,10 @@ public class PanelPrincipal extends JFrame {
 		JMenu mnAltas = new JMenu("Clientes");
 		menuBar.add(mnAltas);
 		
+		JMenuItem mntmAltaDeCliente = new JMenuItem("Alta de Cliente");
+		mntmAltaDeCliente.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/client.png")));
+		mnAltas.add(mntmAltaDeCliente);
+		
 		JMenuItem mntmAltaDeVendedores = new JMenuItem("Vista del Cliente");
 		mntmAltaDeVendedores.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/find.png")));
 		mnAltas.add(mntmAltaDeVendedores);

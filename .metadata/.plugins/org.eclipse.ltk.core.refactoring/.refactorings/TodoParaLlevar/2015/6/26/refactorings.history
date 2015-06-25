@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Iniciar.java&apos; to &apos;ViajesAzeca/src/Qwertys&apos;&#x0D;&#x0A;- Original project: &apos;TodoParaLlevar&apos;&#x0D;&#x0A;- Destination element: &apos;ViajesAzeca/src/Qwertys&apos;&#x0D;&#x0A;- Original element: &apos;InSesion.Iniciar.java&apos;" description="Copy compilation unit" destination="=ViajesAzeca/src&lt;Qwertys" element1="/src&lt;InSesion{Iniciar.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1435088560018" units="1" version="1.0"/>
+</session>

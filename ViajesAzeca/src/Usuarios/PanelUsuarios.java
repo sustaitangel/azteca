@@ -37,12 +37,12 @@ public class PanelUsuarios extends JInternalFrame {
 		setTitle("-- Usuarios Viajes Azteca --");
 		setClosable(true);
 		setIconifiable(true);
-		setBounds(100, 100, 662, 449);
+		setBounds(100, 100, 803, 449);
 		getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBorder(null);
-		tabbedPane.setBounds(10, 11, 626, 397);
+		tabbedPane.setBounds(10, 11, 767, 397);
 		AltaUsuarios n=new AltaUsuarios();
 		tabbedPane.addTab("Alta Usuarios",null,n,null);
 		

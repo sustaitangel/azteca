@@ -1,0 +1,25 @@
+package Usuarios;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JRadioButton;
+import javax.swing.JTable;
+
+import Conexiones.Conexion;
+
+public class ObtenerTipo {
+	public void tipo(JRadioButton rdbtnAdministrador, JTable table){
+		Conexion cx=new Conexion();
+		Connection cn=cx.conexion();
+		Statement comando;
+		try {
+			comando=(Statement) cn.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

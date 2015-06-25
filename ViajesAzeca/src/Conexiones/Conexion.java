@@ -54,7 +54,6 @@ public class Conexion {
 	           //Cargamos el Driver MySQL
 	           Class.forName("org.gjt.mm.mysql.Driver");
 	           conect = DriverManager.getConnection(Cadena,User,pass);
-	           System.out.println("conectado");
 	        } catch (Exception e) {
 	            JOptionPane.showMessageDialog(null,"Error al conectarse en la base de datos\n            Revise la configuracion");
 	        }

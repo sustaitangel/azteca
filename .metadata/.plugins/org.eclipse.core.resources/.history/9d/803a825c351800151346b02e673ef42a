@@ -1,0 +1,69 @@
+package Usuarios;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.StringTokenizer;
+
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import Conexion.Conectar;
+
+public class BusquedaUsuario {
+	public void busqueda(JTextField txtBuscar,DefaultTableModel modelo,JTable tabla){
+		Conectar cx=new Conectar();
+		Connection cn= cx.conexion(txtBuscar);
+		String cadena = txtBuscar.getText();
+		String delimitadores= " ";
+		String[] palabrasSeparadas = cadena.split(delimitadores);
+		String sql1="";
+		limpiarTabla(tabla, modelo);
+		if(palabrasSeparadas.length>1){
+			if(palabrasSeparadas.length==2){
+			 sql1="SELECT * FROM vista_usuarios WHERE usuario LIKE'"+txtBuscar.getText()+"'"
+					+ " OR nombre LIKE '"+txtBuscar.getText()+"' OR apellido_paterno LIKE '"+txtBuscar.getText()+"' "
+					+ "OR apellido_materno LIKE '"+txtBuscar.getText()+"'OR nombre LIKE '"+palabrasSeparadas[0]+"'"
+					+ " AND apellido_paterno LIKE '"+palabrasSeparadas[1]+"'OR nombre LIKE '"+palabrasSeparadas[1]+"'"
+					+ " AND apellido_paterno LIKE '"+palabrasSeparadas[0]+"'";
+			}
+		}else{
+			sql1="SELECT * FROM vista_usuarios WHERE usuario LIKE'"+txtBuscar.getText()+"%'"
+					+ " OR nombre LIKE '"+txtBuscar.getText()+"' OR apellido_paterno LIKE '"+txtBuscar.getText()+"' "
+					+ "OR apellido_materno LIKE '"+txtBuscar.getText()+"'";
+			System.out.println(sql1);
+		}
+		
+		try {
+			Statement comando;
+			comando = cn.createStatement();
+			
+					ResultSet rs01= comando.executeQuery(sql1);			
+				
+					ResultSetMetaData rsx1=rs01.getMetaData();
+					int nColumn1=rsx1.getColumnCount();
+				while(rs01.next()){
+					Object[] fila= new Object[nColumn1];
+						for(int y=0;y<nColumn1;y++){
+							fila[y]=rs01.getObject(y+1);
+						}
+						
+						modelo.addRow(fila);
+					}
+				
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(txtBuscar, "Error "+e);
+			e.printStackTrace();
+		}
+	}
+	public void limpiarTabla(JTable table_1, DefaultTableModel modelo){
+		int n=table_1.getRowCount();
+		for(int i=0;n>i;i++){
+               modelo.removeRow(0);
+		}
+	}
+}

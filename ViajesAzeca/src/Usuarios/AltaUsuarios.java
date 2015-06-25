@@ -37,19 +37,19 @@ public class AltaUsuarios extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 11, 71, 22);
+		lblNombre.setBounds(10, 11, 120, 22);
 		add(lblNombre);
 		
 		JLabel lblApellidoPaterno = new JLabel("Apellido Paterno:");
-		lblApellidoPaterno.setBounds(10, 60, 102, 14);
+		lblApellidoPaterno.setBounds(10, 60, 120, 14);
 		add(lblApellidoPaterno);
 		
 		JLabel lblApellidoMaterno = new JLabel("Apellido Materno:");
-		lblApellidoMaterno.setBounds(10, 110, 102, 14);
+		lblApellidoMaterno.setBounds(10, 110, 120, 14);
 		add(lblApellidoMaterno);
 		
 		JLabel lblTipoDeUsuario = new JLabel("Nombre de Usuario:");
-		lblTipoDeUsuario.setBounds(10, 158, 102, 14);
+		lblTipoDeUsuario.setBounds(10, 158, 120, 14);
 		add(lblTipoDeUsuario);
 		
 		JLabel lblPerfilDeUsuario = new JLabel("Contrase\u00F1a:");
@@ -57,7 +57,7 @@ public class AltaUsuarios extends JPanel {
 		add(lblPerfilDeUsuario);
 		
 		JLabel lblRepitaContrasea = new JLabel("Repita Contrase\u00F1a:");
-		lblRepitaContrasea.setBounds(10, 251, 102, 14);
+		lblRepitaContrasea.setBounds(10, 251, 120, 14);
 		add(lblRepitaContrasea);
 		
 		txtNombre = new JTextField();
@@ -89,7 +89,7 @@ public class AltaUsuarios extends JPanel {
 		add(txtPass1);
 		
 		JLabel lblPerfilDeUsuario_1 = new JLabel("Perfil de Usuario:");
-		lblPerfilDeUsuario_1.setBounds(10, 294, 86, 14);
+		lblPerfilDeUsuario_1.setBounds(10, 294, 120, 14);
 		add(lblPerfilDeUsuario_1);
 		
 		JComboBox comboBox = new JComboBox();

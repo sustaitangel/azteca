@@ -12,12 +12,17 @@ import javax.swing.JDesktopPane;
 import javax.swing.JMenuBar;
 
 import Imagenes.Img;
+import Qwertys.IniSesion;
+import Usuarios.PanelUsuarios;
 
 import java.awt.Color;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanelPrincipal2 extends JFrame {
 
@@ -93,10 +98,6 @@ public class PanelPrincipal2 extends JFrame {
 		JMenu mnAltas = new JMenu("Clientes");
 		menuBar.add(mnAltas);
 		
-		JMenuItem mntmAltaDeCliente = new JMenuItem("Alta de Cliente");
-		mntmAltaDeCliente.setIcon(new ImageIcon(PanelPrincipal2.class.getResource("/Imagenes/client.png")));
-		mnAltas.add(mntmAltaDeCliente);
-		
 		JMenuItem mntmAltaDeVendedores = new JMenuItem("Vista del Cliente");
 		mntmAltaDeVendedores.setIcon(new ImageIcon(PanelPrincipal2.class.getResource("/Imagenes/find.png")));
 		mnAltas.add(mntmAltaDeVendedores);
@@ -105,6 +106,15 @@ public class PanelPrincipal2 extends JFrame {
 		menuBar.add(mnUsuarios);
 		
 		JMenuItem mntmUsuarioDelSistema = new JMenuItem("Usuarios del Sistema");
+		mntmUsuarioDelSistema.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PanelUsuarios n = new PanelUsuarios();
+				contentPane.add(n);
+				n.setLocation(200, 100);
+				n.setVisible(true);
+				n.toFront();
+			}
+		});
 		mntmUsuarioDelSistema.setIcon(new ImageIcon(PanelPrincipal2.class.getResource("/Imagenes/1434408957_user-id.png")));
 		mnUsuarios.add(mntmUsuarioDelSistema);
 		
@@ -121,6 +131,9 @@ public class PanelPrincipal2 extends JFrame {
 		
 		JMenu mnReportes = new JMenu("Reportes");
 		menuBar.add(mnReportes);
+		
+		JMenu menu = new JMenu(IniSesion.loger1);
+		menuBar.add(menu);
 		contentPane = new JDesktopPane();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -145,5 +158,18 @@ public class PanelPrincipal2 extends JFrame {
 		lblHora.setBounds(567, 518, 249, 43);
 		contentPane.add(lblHora);
 		relojFecha.reloj(lblHora);
+		
+		JLabel lblUstedEstEn = new JLabel("Usted Est\u00E1 en el Sistema C\u00F3mo:");
+		lblUstedEstEn.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblUstedEstEn.setForeground(new Color(0, 0, 139));
+		lblUstedEstEn.setBounds(10, 653, 256, 36);
+		contentPane.add(lblUstedEstEn);
+		String nombre=IniSesion.loger;
+		
+		JLabel lblLols = new JLabel(nombre);
+		lblLols.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblLols.setForeground(new Color(0, 0, 128));
+		lblLols.setBounds(272, 653, 256, 36);
+		contentPane.add(lblLols);
 	}
 }

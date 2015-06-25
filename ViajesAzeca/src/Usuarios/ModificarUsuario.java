@@ -6,18 +6,33 @@ import java.awt.Color;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ModificarUsuario extends JPanel {
-	private JTextField txtUser;
-	private JTextField txtNombre;
-	private JTextField txtAp_paterno;
-	private JTextField txtAp_materno;
-	private JPasswordField txtPass;
+	private JTextField txtBuscar;
+	private  String matriz[][]={};
+	private  String vector[]={"Nombre","A. Paterno","A. Materno","Usuario","ID"};
+	private JTable table= new JTable();
+	private  DefaultTableModel modelo= new DefaultTableModel(matriz,vector);
+	private JPasswordField passwordField;
+	int valor;
 
 	/**
 	 * Create the panel.
@@ -25,83 +40,140 @@ public class ModificarUsuario extends JPanel {
 	public ModificarUsuario() {
 		setBackground(Color.WHITE);
 		setLayout(null);
+		JRadioButton rdbtnUsuario = new JRadioButton("Usuario");
+		JRadioButton rdbtnAdministrador = new JRadioButton("Administrador");
 		
-		JLabel lblNomreDeUsuario = new JLabel("Nomre de Usuario:");
-		lblNomreDeUsuario.setBounds(10, 27, 120, 14);
-		add(lblNomreDeUsuario);
+		txtBuscar = new JTextField();
+		txtBuscar.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char ec=e.getKeyChar();
+				if(ec==KeyEvent.VK_ENTER){
+					BusquedaUsuario b=new BusquedaUsuario();
+					b.busqueda(txtBuscar, modelo, table);
+					rdbtnAdministrador.setSelected(false);
+					rdbtnUsuario.setSelected(false);
+				}
+			}
+		});
+		txtBuscar.setBounds(189, 23, 141, 23);
+		add(txtBuscar);
+		txtBuscar.setColumns(10);
 		
-		txtUser = new JTextField();
-		txtUser.setBounds(140, 24, 127, 20);
-		add(txtUser);
-		txtUser.setColumns(10);
-		
-		JButton btnBuscar = new JButton("Buscar");
+		JButton btnBuscar = new JButton("Buscar Usuario");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				rdbtnAdministrador.setSelected(false);
+				rdbtnUsuario.setSelected(false);
+				BusquedaUsuario b=new BusquedaUsuario();
+				b.busqueda(txtBuscar, modelo, table);
+				
+			}
+		});
 		btnBuscar.setIcon(new ImageIcon(ModificarUsuario.class.getResource("/Imagenes/find.png")));
-		btnBuscar.setBounds(325, 18, 120, 33);
+		btnBuscar.setBounds(10, 23, 156, 23);
 		add(btnBuscar);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 82, 79, 14);
-		add(lblNombre);
-		
-		txtNombre = new JTextField();
-		txtNombre.setBounds(140, 79, 127, 20);
-		add(txtNombre);
-		txtNombre.setColumns(10);
-		
-		JLabel lblApellidoPaterno = new JLabel("Apellido Paterno:");
-		lblApellidoPaterno.setBounds(10, 139, 120, 14);
-		add(lblApellidoPaterno);
-		
-		txtAp_paterno = new JTextField();
-		txtAp_paterno.setBounds(140, 136, 127, 20);
-		add(txtAp_paterno);
-		txtAp_paterno.setColumns(10);
-		
-		JLabel lblApellidoMaterno = new JLabel("Apellido Materno:");
-		lblApellidoMaterno.setBounds(10, 203, 120, 14);
-		add(lblApellidoMaterno);
-		
-		txtAp_materno = new JTextField();
-		txtAp_materno.setBounds(140, 200, 127, 20);
-		add(txtAp_materno);
-		txtAp_materno.setColumns(10);
-		
-		JLabel lblPassword = new JLabel("Contrase\u00F1a:");
-		lblPassword.setBounds(10, 262, 79, 14);
-		add(lblPassword);
-		
-		txtPass = new JPasswordField();
-		txtPass.setBounds(140, 259, 127, 20);
-		add(txtPass);
-		
-		JLabel lblPerfil = new JLabel("Perfil:");
-		lblPerfil.setBounds(10, 305, 79, 14);
-		add(lblPerfil);
-		
-		JRadioButton rdbtnAdmin = new JRadioButton("Administrador");
-		rdbtnAdmin.setBackground(Color.WHITE);
-		rdbtnAdmin.setBounds(95, 301, 112, 23);
-		add(rdbtnAdmin);
-		
-		JRadioButton rdbtnEmpleado = new JRadioButton("Empleado");
-		rdbtnEmpleado.setBackground(Color.WHITE);
-		rdbtnEmpleado.setBounds(212, 301, 94, 23);
-		add(rdbtnEmpleado);
-		
 		ButtonGroup  grupo=new ButtonGroup();
-		grupo.add(rdbtnAdmin);
-		grupo.add(rdbtnEmpleado);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnAdministrador.isSelected()){
+					valor=1;
+				}
+				if(rdbtnUsuario.isSelected()){
+					valor=2;
+				}
+				ModifacarUsuarioDtb n= new ModifacarUsuarioDtb();
+				n.modificar(table, valor, passwordField);
+			}
+		});
 		btnGuardar.setIcon(new ImageIcon(ModificarUsuario.class.getResource("/Imagenes/done.png")));
-		btnGuardar.setBounds(325, 292, 120, 41);
+		btnGuardar.setBounds(483, 325, 133, 41);
 		add(btnGuardar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setIcon(new ImageIcon(ModificarUsuario.class.getResource("/Imagenes/cancel_travel.png")));
-		btnCancelar.setBounds(455, 292, 112, 41);
-		add(btnCancelar);
+		JPanel panel = new JPanel();
+		
+		rdbtnAdministrador.setBackground(Color.WHITE);
+		rdbtnAdministrador.setBounds(6, 22, 116, 23);
+		panel.add(rdbtnAdministrador);
+		
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 67, 735, 192);
+		add(scrollPane);
+		
+		table = new JTable(){
+			public boolean isCellEditable(int rowIndex, int columnIndex) { 
+				if (columnIndex==4) return false;
+				else 
+				return true; 
+				} 
+		};
+		
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				//System.out.println("si paso");
+				ObtenerTipo ob=new ObtenerTipo();
+				ob.tipo(rdbtnAdministrador, table, rdbtnUsuario);
+				
+			}
+		});
+		
+		table.setBackground(Color.WHITE);
+		table.setModel(modelo);
+		scrollPane.setViewportView(table);
+		
+		
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Cambiar Perfil", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(10, 270, 177, 96);
+		add(panel);
+		panel.setLayout(null);
+		
+				
+		
+		rdbtnUsuario.setBackground(Color.WHITE);
+		rdbtnUsuario.setBounds(6, 55, 109, 23);
+		grupo.add(rdbtnUsuario);
+		grupo.add(rdbtnAdministrador);
+		panel.add(rdbtnUsuario);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, "Cambiar Contrase\u00F1a", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(197, 270, 231, 96);
+		add(panel_1);
+		panel_1.setLayout(null);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(107, 38, 101, 20);
+		panel_1.add(passwordField);
+		
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setBounds(10, 41, 87, 14);
+		panel_1.add(lblContrasea);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int selected;
+				selected=table.getSelectedRow(); 
+				if(selected>=0){
+				ModifacarUsuarioDtb x=new ModifacarUsuarioDtb();
+				x.eliminar(table);
+				BusquedaUsuario b=new BusquedaUsuario();
+				b.busqueda(txtBuscar, modelo, table);
+				}else{
+					JOptionPane.showMessageDialog(null, "Seleccione Un Usuario");
+				}
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon(ModificarUsuario.class.getResource("/Imagenes/cancel_travel.png")));
+		btnEliminar.setBounds(626, 325, 119, 41);
+		add(btnEliminar);
 
 	}
 }

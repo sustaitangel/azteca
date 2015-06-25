@@ -14,9 +14,7 @@ import javax.swing.JMenuBar;
 import Imagenes.Img;
 import Qwertys.IniSesion;
 import Usuarios.PanelUsuarios;
-
 import java.awt.Color;
-
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
@@ -131,6 +129,24 @@ public class PanelPrincipal extends JFrame {
 		
 		JMenu mnReportes = new JMenu("Reportes");
 		menuBar.add(mnReportes);
+		
+		JMenu menu12 = new JMenu("-- "+IniSesion.loger1+" --");
+		menuBar.add(menu12);
+		
+		JMenuItem  mntmCerrarSesion= new JMenuItem("Cerrar Sesi\u00F3n");
+		mntmCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PanelPrincipal.this.dispose();
+				Principal ob=new Principal();
+				ob.llamar();
+			}
+		});
+		mntmCerrarSesion.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/logout.png")));
+		menu12.add(mntmCerrarSesion);
+		
+		JMenuItem mntmCambiarContrasea = new JMenuItem("Cambiar Contrase\u00F1a");
+		mntmCambiarContrasea.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/pass.png")));
+		menu12.add(mntmCambiarContrasea);
 		contentPane = new JDesktopPane();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

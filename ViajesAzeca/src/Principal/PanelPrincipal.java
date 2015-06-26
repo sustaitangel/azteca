@@ -14,6 +14,7 @@ import javax.swing.JMenuBar;
 import Imagenes.Img;
 import Qwertys.IniSesion;
 import Usuarios.PanelUsuarios;
+import Vendedores.PanelVendedores;
 import java.awt.Color;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -124,6 +125,15 @@ public class PanelPrincipal extends JFrame {
 		mnVendedores.add(mntmEstadsticas);
 		
 		JMenuItem mntmAltasModificaciones = new JMenuItem("Altas / Modificaciones");
+		mntmAltasModificaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PanelVendedores n = new PanelVendedores();
+				contentPane.add(n);
+				n.setLocation(200, 100);
+				n.setVisible(true);
+				n.toFront();
+			}
+		});
 		mntmAltasModificaciones.setIcon(new ImageIcon(PanelPrincipal.class.getResource("/Imagenes/client.png")));
 		mnVendedores.add(mntmAltasModificaciones);
 		

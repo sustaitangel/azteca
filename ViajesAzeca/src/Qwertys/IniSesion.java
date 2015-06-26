@@ -43,7 +43,7 @@ public class IniSesion {
 		String tipoUsuario=null;
 		Connection cx= n.conexion();
 		String sql="select nombre, ape_paterno, usuario, perfil from usuario where usuario='"+txtUsuario.getText()+"'";
-		System.out.println(sql);
+		//System.out.println(sql);
 		Statement comando1;
 		
 		try {
@@ -68,7 +68,7 @@ public class IniSesion {
 					loger=nombre + " " + apellido + " (" + user + ")";
 					loger1=user;
 					String bienvenida="Bienvenid@ ";
-					System.out.println(loger1);
+					//System.out.println(loger1);
 					int tipo=rs.getInt("Perfil");
 					if(tipo==1){
 						JOptionPane.showMessageDialog(txtUsuario,bienvenida+nombre,"Bienvenido",JOptionPane.DEFAULT_OPTION,ob.login());

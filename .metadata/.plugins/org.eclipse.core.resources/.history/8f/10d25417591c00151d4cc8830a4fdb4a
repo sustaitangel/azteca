@@ -1,0 +1,13 @@
+package Reservaciones;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import Conexiones.Conexion;
+
+public class ObtenerSalida {
+	Conexion cx=new Conexion();
+	Connection cn=cx.conexion();
+	Statement comando;
+	comando=(Statement) cn.createStatement();
+}

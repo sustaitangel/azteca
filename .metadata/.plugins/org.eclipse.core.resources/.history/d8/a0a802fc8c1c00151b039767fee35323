@@ -1,0 +1,12 @@
+package Reservaciones;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+public class NuevaSalida {
+	public void nueva(JButton prob, JTextField nueva){
+			prob.setVisible(true);
+			prob.setText("Agendar");
+	}
+
+}

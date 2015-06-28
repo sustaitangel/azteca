@@ -1,0 +1,96 @@
+package Reservaciones;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.beans.PropertyVetoException;
+
+import javax.swing.JInternalFrame;
+import javax.swing.ImageIcon;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import Atxy2k.CustomTextField.RestrictedTextField;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+
+public class PanelReservaciones extends JInternalFrame {
+	private JTextField txtAno;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PanelReservaciones frame = new PanelReservaciones();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public PanelReservaciones() {
+		getContentPane().setBackground(Color.WHITE);
+		getContentPane().setLayout(null);
+		
+		JLabel lblDa = new JLabel("D\u00EDa: ");
+		lblDa.setBounds(10, 29, 46, 14);
+		getContentPane().add(lblDa);
+		
+		JComboBox cmbdia = new JComboBox();
+		cmbdia.setBackground(Color.WHITE);
+		cmbdia.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		cmbdia.setBounds(39, 26, 54, 20);
+		getContentPane().add(cmbdia);
+		
+		JLabel lblMes = new JLabel("Mes:");
+		lblMes.setBounds(108, 29, 46, 14);
+		getContentPane().add(lblMes);
+		
+		JComboBox cmbMes = new JComboBox();
+		cmbMes.setModel(new DefaultComboBoxModel(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septirmbre", "Octubre ", "Noviembre", "Diciembre"}));
+		cmbMes.setBounds(142, 26, 104, 20);
+		getContentPane().add(cmbMes);
+		
+		JLabel lblAo = new JLabel("A\u00F1o:");
+		lblAo.setBounds(256, 29, 46, 14);
+		getContentPane().add(lblAo);
+		
+		txtAno = new JTextField();
+		txtAno.addKeyListener(new KeyAdapter() {
+			
+			
+			public void keyTyped(KeyEvent e) {
+				int largo= txtAno.getText().length();
+				char c=e.getKeyChar();
+				if(c<'0' || c>'9'){
+						e.consume();	
+				}
+			}
+		});
+		
+		txtAno.setBounds(294, 26, 86, 20);
+		getContentPane().add(txtAno);
+		txtAno.setColumns(10);
+		RestrictedTextField restricted = new RestrictedTextField(txtAno);
+		restricted.setLimit(5);
+		
+		setTitle("--Reservaciones Viajes Azteca--");
+		setFrameIcon(new ImageIcon(PanelReservaciones.class.getResource("/Imagenes/bus.png")));
+		setIconifiable(true);
+		setClosable(true);
+		setBounds(100, 100, 948, 497);
+
+	}
+}

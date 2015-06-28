@@ -1,7 +1,7 @@
 package Qwertys;
 
 public class Comunes {
-	public static String[] tablas={"usuario","cliente"}; 
+	public static String[] tablas={"usuario","cliente"," salida"}; 
 	public String Select(String campos, String tabla){
 		String query="SELECT "+campos+" FROM "+tabla;
 		return query;

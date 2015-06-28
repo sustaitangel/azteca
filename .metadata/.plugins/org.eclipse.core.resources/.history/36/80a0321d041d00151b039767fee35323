@@ -1,0 +1,14 @@
+package Reservaciones;
+
+import javax.swing.JPanel;
+
+public class PanelCamion extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelCamion() {
+
+	}
+
+}

@@ -1,0 +1,85 @@
+package Reservaciones;
+
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+
+import java.awt.Color;
+
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
+import javax.swing.JLabel;
+
+import Imagenes.Img;
+import javax.swing.UIManager;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
+import java.awt.Component;
+
+public class PanelCamion extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelCamion() {
+		setBackground(Color.WHITE);
+		setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Reservaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(128, 0, 0), 2));
+		panel.setBounds(22, 34, 518, 104);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblLblentrada = new JLabel("lblEntrada");
+		lblLblentrada.setIcon(new ImageIcon(PanelCamion.class.getResource("/Imagenes/etr1.png")));
+		lblLblentrada.setBounds(4, 4, 46, 54);
+		panel.add(lblLblentrada);
+		
+		JButton button_1 = new JButton();
+		button_1.setBounds(80, 4, 30, 30);
+		panel.add(button_1);
+		
+		JLabel label_2 = new JLabel("01");
+		label_2.setBounds(60, 12, 35, 14);
+		panel.add(label_2);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(128, 0, 0), 2));
+		panel_1.setBounds(22, 173, 518, 104);
+		add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblChofer = new JLabel("");
+		lblChofer.setIcon(new ImageIcon(PanelCamion.class.getResource("/Imagenes/conductor.png")));
+		lblChofer.setBounds(10, 62, 30, 31);
+		panel_1.add(lblChofer);
+		Img n= new Img();
+		Icon x=n.seat1();
+		JButton btn1 = new JButton();
+		btn1.setIcon(x);
+		btn1.setBounds(70, 62, 30, 30);
+		panel_1.add(btn1);
+		
+		JLabel label = new JLabel("01");
+		label.setBounds(50, 70, 35, 14);
+		panel_1.add(label);
+		
+		JButton button = new JButton();
+		button.setBounds(70, 11, 30, 30);
+		panel_1.add(button);
+		
+		JLabel label_1 = new JLabel("01");
+		label_1.setBounds(50, 19, 35, 14);
+		panel_1.add(label_1);
+		
+		JLabel lblPasillo = new JLabel("Pasillo");
+		lblPasillo.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblPasillo.setBounds(262, 149, 175, 14);
+		add(lblPasillo);
+
+	}
+
+}

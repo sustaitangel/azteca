@@ -1,0 +1,38 @@
+package Reservaciones;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JOptionPane;
+
+import Conexiones.Conexion;
+import Qwertys.Comunes;
+
+public class ObtenerSalida {
+	public void existe(String fecha){
+		Conexion cx=new Conexion();
+		Connection cn=cx.conexion();
+		Statement comando;
+		Comunes n= new Comunes();
+		String sql=n.SelectWhere("*", Comunes.tablas[2], "fecha_salida", fecha);
+		System.out.println(sql);
+		try {
+			comando=(Statement) cn.createStatement();
+			ResultSet rs= ((java.sql.Statement) comando).executeQuery(sql);
+			if(rs.next()){
+				Date fechadt=rs.getDate("fecha_salida");
+				JOptionPane.showMessageDialog(null, fechadt);
+				
+			}else{
+				Date fechadt=rs.getDate("fecha_salida");
+				JOptionPane.showMessageDialog(null, "esta fecha no esta");
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+}

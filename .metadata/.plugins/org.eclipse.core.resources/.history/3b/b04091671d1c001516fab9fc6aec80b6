@@ -1,0 +1,44 @@
+package Reservaciones;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.swing.JComboBox;
+
+public class ObtenerDia {
+	public int getDiaSemana(String fecha) {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		Date fechaActual = null;
+		try {
+			fechaActual = df.parse(fecha);
+		} catch (ParseException e) {
+			System.err.println("No se ha podido parsear la fecha.");
+			e.printStackTrace();
+		}
+			GregorianCalendar fechaCalendario = new GregorianCalendar();
+			fechaCalendario.setTime(fechaActual);
+			int diaSemana = fechaCalendario.get(Calendar.DAY_OF_WEEK);
+			return diaSemana;
+		}
+	public String mes(JComboBox mes){
+		String mes1 = null;
+		if(mes.equals("Enero"))mes1="01"; 
+		if(mes.equals("Febrero"))mes1="02"; 
+		if(mes.equals("Marzo"))mes1="03"; 
+		if(mes.equals("Abril"))mes1="04"; 
+		if(mes.equals("Mayo"))mes1="05"; 
+		if(mes.equals("Junio"))mes1="06"; 
+		if(mes.equals("Julio"))mes1="07"; 
+		if(mes.equals("Agosto"))mes1="08"; 
+		if(mes.equals("Septiembre"))mes1="09"; 
+		if(mes.equals("Octubre"))mes1="10"; 
+		if(mes.equals("Noviembre"))mes1="11"; 
+		if(mes.equals("Diceimbre"))mes1="12"; 
+		
+		return mes1;
+	}
+	
+}

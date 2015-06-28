@@ -1,4 +1,4 @@
-package Usuarios;
+package Vendedores;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,24 +16,28 @@ import Conexiones.Conexion;
 import Qwertys.Comunes;
 
 
-public class BusquedaUsuario {
+public class BusquedaVendedor {
 	Conexion cx=new Conexion();
 	Connection cn=cx.conexion();
-	public void busqueda(JTextField txtBuscar,DefaultTableModel modelo,JTable tabla){
-		String cadena = txtBuscar.getText();
-		String delimitadores= " ";
-		String[] palabrasSeparadas = cadena.split(delimitadores);
+	public void busqueda(JTextField txtBuscar,DefaultTableModel modelo,JTable tabla){		
 		String sql1="";
-		limpiarTabla(tabla, modelo);
 		Comunes q=new Comunes();
+		sql1=q.SelectLike("*", "vendedor", "nombre_vendedor", txtBuscar.getText());
+		limpiarTabla(tabla, modelo);
+		/*
+			
+		String delimitadores= " ";
+		String[] palabrasSeparadas = cadena.split(delimitadores);		
+		
+		
 		if(palabrasSeparadas.length>1){
 			if(palabrasSeparadas.length==2){
-			 sql1=q.BusquedaUsuario1(txtBuscar.getText(),palabrasSeparadas[0],palabrasSeparadas[1]);
+			 sql1=q.SelectWhere("*", "vendedor", "nombre", txtBuscar.getText());
 			}
 		}else{
-			sql1=q.BusquedaUsuario2(txtBuscar.getText());
+			sql1=q.SelectWhere("*", "vendedor", "nombre", txtBuscar.getText());
 			}
-		
+		*/
 		try {
 			Statement comando;
 			comando = cn.createStatement();		
@@ -55,7 +59,7 @@ public class BusquedaUsuario {
 	}
 	public void limpiarTabla(JTable table_1, DefaultTableModel modelo){
 		int n=table_1.getRowCount();
-		for(int i=0;n>i;i++){
+		for(int i=1;i<=n;i++){
                modelo.removeRow(0);
 		}
 	}

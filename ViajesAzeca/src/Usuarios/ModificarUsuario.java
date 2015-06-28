@@ -75,7 +75,7 @@ public class ModificarUsuario extends JPanel {
 		add(btnBuscar);
 		
 		ButtonGroup  grupo=new ButtonGroup();
-		
+
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

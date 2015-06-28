@@ -11,11 +11,19 @@ public class Comunes {
 		//System.out.println(query);
 		return query;
 	}
+	
+	public String SelectLike(String campos, String tabla, String comparador, String comparable){
+		String query="SELECT "+campos+" FROM "+ tabla +" WHERE "+comparador+" LIKE '"+comparable+"%'";
+		//System.out.println("resultado "+query);
+		return query;
+	} 
+	
 	public String insertInto(String tabla, String campos, String Valores){
 		String query="INSERT INTO "+tabla+" ("+campos+") "+"VALUES"+" ("+Valores+")";
 		//System.out.println(query);
 		return query;
 	}
+	
 	public String BusquedaUsuario1(String comparable, String p1, String p2){
 		String[] campos={"Nombre", "ape_paterno", "ap_materno","usuario","id_usuario"};
 		String query="SELECT "+campos[0]+","+campos[1]+","+campos[2]+","+campos[3]+","+campos[4]+" FROM "+tablas[0]+" WHERE "+

@@ -1,0 +1,59 @@
+package Reservaciones;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LlenarR {
+	public void llenar(JComboBox cmbMes, JComboBox cmbdia, JTextField txtAno, 
+			String fechaEscrita, String fechaDtb, JLabel lblDia,
+			JLabel lblSalida, JButton btnProb, JLabel lblFechaEscrita, NuevaSalida ns, 
+			PanelCamion nx, JPanel Panel_alta, JTextField txtBus){
+		ObtenerDia n=new ObtenerDia();
+		String mes=(String) cmbMes.getSelectedItem();
+		JOptionPane.showMessageDialog(null, mes);
+		String month=n.mes(mes);				
+		String day=(String) cmbdia.getSelectedItem();
+		String ano=txtAno.getText();
+		
+		String fecha=day+"/"+month+"/"+ano;
+		fechaEscrita=day+"/"+mes+"/"+ano;
+		fechaDtb=ano+"-"+month+"-"+day;
+		if(!ano.equals("")){
+		int anio=Integer.parseInt(ano);
+		if(anio>=1900){
+			int dia=n.getDiaSemana(fecha);
+			String letraDia=n.dia(dia);
+			lblDia.setText(letraDia);
+			}
+		String fechapob=ano+"-"+month+"-"+day;
+		ObtenerSalida ob=new ObtenerSalida();
+		int tipo=ob.salida(lblSalida, lblDia, fechapob);
+		if(tipo==1){
+			lblSalida.setText("¿Cambiar Salida?");
+			lblSalida.setForeground(new Color(139, 0, 0));
+		}
+		if(tipo==2){
+			lblFechaEscrita.setVisible(true);
+			ns.nueva(btnProb, Panel_alta, lblSalida, tipo, nx, txtBus);
+			lblFechaEscrita.setText(fechaEscrita);
+			lblSalida.setVisible(true);		
+		}
+		if(tipo==3){
+			if(!lblDia.getText().equals("")){
+				lblSalida.setText(lblDia.getText()+" No hay Salida ¿Agendar Especial?");
+				lblSalida.setForeground(new Color(255, 0, 0));
+			}else{
+				lblSalida.setText("");
+			}
+			btnProb.setVisible(false);
+		}
+		}
+	}
+
+}

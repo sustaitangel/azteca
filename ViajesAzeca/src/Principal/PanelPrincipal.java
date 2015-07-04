@@ -15,11 +15,7 @@ import Imagenes.Img;
 import Qwertys.IniSesion;
 import Reservaciones.PanelReservaciones;
 import Usuarios.PanelUsuarios;
-<<<<<<< HEAD
-
-=======
 import Vendedores.PanelVendedores;
->>>>>>> 707ac4d8c40fb344a1ba2d97135b93758c191c4c
 import java.awt.Color;
 
 import javax.swing.JMenu;
@@ -72,6 +68,8 @@ public class PanelPrincipal extends JFrame {
 				PanelReservaciones n=new PanelReservaciones();
 				contentPane.add(n);
 				n.setLocation(10, 10);
+				PanelReservaciones.cmbdia.setSelectedIndex(RelojFecha.dia-1);
+				PanelReservaciones.cmbMes.setSelectedIndex(RelojFecha.mes-1);
 				try{
 				n.setMaximum(true);
 				}catch(Exception e) { e.printStackTrace(); }

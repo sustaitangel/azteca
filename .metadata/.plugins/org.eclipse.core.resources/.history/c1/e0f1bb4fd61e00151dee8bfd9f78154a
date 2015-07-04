@@ -1,0 +1,58 @@
+package Reservaciones;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField; 
+
+import Conexiones.Conexion;
+import Qwertys.Comunes;
+
+public class NuevaSalida {
+	public void nueva(JButton prob, JPanel panel_alta, JLabel lblSalida, int tipo, PanelCamion n, JTextField txtBus){
+			prob.setVisible(true);
+			prob.setText("Agendar");
+			lblSalida.setText("¿Agendar Salida?");
+			lblSalida.setForeground(new Color(139, 0, 0));
+			prob.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					panel_alta.setVisible(true);
+					txtBus.setVisible(true);
+					txtBus.setFocusable(true);
+ 				}
+			});
+	}
+	public void nuevaFecha(String bus, String chofer, String telefono,String fechaDtb){
+		Conexion cx=new Conexion();
+		Connection cn=cx.conexion();
+		Statement comando;
+		Comunes q=new Comunes();
+		try {
+			String campos="fecha_salida,id_camion,Responsable,Telefono";
+			String Valores=fechaDtb+","+bus+","+chofer+"."+telefono;
+			comando=(Statement) cn.createStatement();
+			String sqlGuardar=q.insertInto("salida", campos, Valores);
+			System.out.println(sqlGuardar);
+			comando.execute(sqlGuardar);
+			Icon echo;
+			PanelCamion nx=new PanelCamion();
+			nx.setVisible(true);
+			echo=new ImageIcon("src/Imagenes/done.png");
+			JOptionPane.showMessageDialog(null,"Nueva fecha de salida","Guardada",JOptionPane.DEFAULT_OPTION,echo);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+}

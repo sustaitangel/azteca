@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import Principal.RelojFecha;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -31,15 +32,21 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 
 public class PanelReservaciones extends JInternalFrame {
-	private JTextField txtAno;
+	public static JTextField txtAno;
 	public JLabel lblDia = new JLabel();
 	public JLabel lblSalida = new JLabel("");
 	JButton btnProb = new JButton("prob");
 	JPanel Panel_alta = new JPanel();
-	JComboBox cmbdia = new JComboBox();
-	JComboBox cmbMes = new JComboBox();
+	public static JComboBox cmbdia = new JComboBox();
+	public static JComboBox cmbMes = new JComboBox();
 	public PanelCamion nx=new PanelCamion();
 	NuevaSalida ns=new NuevaSalida();
+	private JTextField txtCamion;
+	private JTextField txtChofer;
+	private JTextField txtTelefono;
+	private JTextField txtReservados;
+	JButton btnGuardar = new JButton("Guardar");
+	JLabel lblFecha = new JLabel("");
 	/**
 	 * Launch the application.
 	 */
@@ -111,6 +118,9 @@ public class PanelReservaciones extends JInternalFrame {
 		getContentPane().add(txtAno);
 		txtAno.setColumns(10);
 		RestrictedTextField restricted = new RestrictedTextField(txtAno);
+
+		
+
 		
 		
 		lblDia.setForeground(new Color(139, 0, 0));
@@ -154,7 +164,7 @@ public class PanelReservaciones extends JInternalFrame {
 		lblCamin.setBounds(10, 87, 71, 14);
 		Panel_alta.add(lblCamin);
 		
-		JLabel lblChofer = new JLabel("Chofer:");
+		JLabel lblChofer = new JLabel("Ch\u00F3fer:");
 		lblChofer.setBounds(10, 131, 71, 14);
 		Panel_alta.setVisible(false);
 		Panel_alta.add(lblChofer);
@@ -166,8 +176,52 @@ public class PanelReservaciones extends JInternalFrame {
 		JLabel Asientos = new JLabel("Reservados:");
 		Asientos.setBounds(10, 213, 106, 14);
 		Panel_alta.add(Asientos);
+		
+		RelojFecha mes=new RelojFecha();
+
+		String fecha=RelojFecha.dia+" / "+mes.fecha(lblFecha)+" / "+RelojFecha.ano;
+		lblFecha.setText(fecha);
+		lblFecha.setBounds(107, 41, 111, 14);
+		lblFecha.setVisible(false);
+		Panel_alta.add(lblFecha);
+		
+		txtCamion = new JTextField();
+		RestrictedTextField n=new RestrictedTextField(txtCamion);
+		txtCamion.setVisible(false);
+		txtCamion.setBounds(107, 84, 30, 20);
+		Panel_alta.add(txtCamion);
+		txtCamion.setColumns(10);
+		
+		txtChofer = new JTextField();
+		txtChofer.setBounds(107, 128, 111, 20);
+		txtChofer.setVisible(false);
+		Panel_alta.add(txtChofer);
+		txtChofer.setColumns(10);
+		
+		txtTelefono = new JTextField();
+		RestrictedTextField y=new RestrictedTextField(txtTelefono);
+		txtTelefono.setVisible(false);
+		txtTelefono.setBounds(107, 171, 86, 20);
+		Panel_alta.add(txtTelefono);
+		txtTelefono.setColumns(10);
+		
+		txtReservados = new JTextField();
+		txtReservados.setEditable(false);
+		txtReservados.setText("0");
+		txtReservados.setVisible(false);
+		txtReservados.setBounds(107, 210, 30, 20);
+		Panel_alta.add(txtReservados);
+		txtReservados.setColumns(10);
+		
+		
+		btnGuardar.setBounds(301, 295, 89, 23);
+		btnGuardar.setVisible(false);
+		Panel_alta.add(btnGuardar);
 		restricted.setLimit(4);
 		restricted.setOnlyNums(true);
+		
+		n.setOnlyNums(true);
+		y.setOnlyNums(true);
 		
 		setTitle("--Reservaciones Viajes Azteca--");
 		setFrameIcon(new ImageIcon(PanelReservaciones.class.getResource("/Imagenes/bus.png")));
@@ -184,6 +238,7 @@ public class PanelReservaciones extends JInternalFrame {
 		String ano=txtAno.getText();
 		
 		String fecha=day+"/"+month+"/"+ano;
+		
 		if(!ano.equals("")){
 		int anio=Integer.parseInt(ano);
 		if(anio>=1900){
@@ -200,8 +255,17 @@ public class PanelReservaciones extends JInternalFrame {
 		}
 		if(tipo==2){
 			
+			lblFecha.setText("");
 			ns.nueva(btnProb, Panel_alta, lblSalida, tipo, nx);
-			lblSalida.setVisible(true);		
+			lblSalida.setVisible(true);
+			lblFecha.setVisible(true);
+			lblFecha.setText(fecha);
+			txtCamion.setVisible(true);
+			txtChofer.setVisible(true);
+			txtTelefono.setVisible(true);
+			txtReservados.setVisible(true);
+			btnGuardar.setVisible(true);
+			ns.guardarSalida(btnGuardar, txtCamion, nx,txtTelefono,txtChofer,fechapob);
 		}
 		if(tipo==3){
 			if(!lblDia.getText().equals("")){

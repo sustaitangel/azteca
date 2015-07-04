@@ -1,0 +1,22 @@
+package Reservaciones;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import Principal.RelojFecha;
+
+public class LlenarR {
+	public void llenar(JComboBox cmbMes, JComboBox cmbdia, JTextField txtAno, 
+			String fechaEscrita, String fechaDtb, JLabel lblDia,
+			JLabel lblSalida, JButton btnProb, JLabel lblFechaEscrita, NuevaSalida ns, 
+			PanelCamion nx, JPanel Panel_alta, JTextField txtBus,JButton btnFecha){
+		
+	}
+
+}

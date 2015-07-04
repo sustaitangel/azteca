@@ -1,0 +1,14 @@
+package Vendedores;
+
+import javax.swing.JPanel;
+
+public class PanelAltaNuevo extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelAltaNuevo() {
+
+	}
+
+}

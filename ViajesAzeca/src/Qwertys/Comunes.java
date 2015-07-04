@@ -1,7 +1,7 @@
 package Qwertys;
 
 public class Comunes {
-	public static String[] tablas={"usuario","cliente"," salida"}; 
+	public static String[] tablas={"usuario","cliente"," salida","camion"}; 
 	public String Select(String campos, String tabla){
 		String query="SELECT "+campos+" FROM "+tabla;
 		return query;
@@ -49,6 +49,11 @@ public class Comunes {
 	}
 	public String eliminar(String tabla, String comparador, String comparable){
 		String query="DELETE FROM "+tabla+" WHERE "+comparador+" = "+"'"+comparable+"'";
+		return query;
+	}
+	public String selectand2(String campos, String tabla, String comparador, String comparable,String segComparador, String segComparable){
+		String query="SELECT "+campos+" FROM "+tabla +" WHERE "+comparador+" = '"+comparable+"'"+" AND "+segComparador+" = "+segComparable;
+		System.out.println(query);
 		return query;
 	}
 }

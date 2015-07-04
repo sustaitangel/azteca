@@ -14,4 +14,11 @@
 <fullyQualifiedTypeName name="Qwertys.IniSesion"/>
 <fullyQualifiedTypeName name="Login.Login"/>
 <fullyQualifiedTypeName name="Imagenes.Img"/>
+<fullyQualifiedTypeName name="Atxy2k.CustomTextField.RestrictedTextField.OnlyNumsDocument"/>
+<fullyQualifiedTypeName name="Principal.RelojFecha"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>

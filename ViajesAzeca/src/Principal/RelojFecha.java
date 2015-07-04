@@ -6,6 +6,11 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 
 public class RelojFecha {
+	static Calendar calendar = new GregorianCalendar();
+	public static int dia = calendar.get(Calendar.DAY_OF_MONTH);
+	public static int mes = calendar.get(Calendar.MONTH)+1;
+	public static int ano = calendar.get(Calendar.YEAR);
+	
 	Calendar calendario = new GregorianCalendar();
 	int hora, minutos, segundos;
 	public void reloj(final JLabel reloj) {  
@@ -23,11 +28,8 @@ public class RelojFecha {
 		}); 
 		timer.start(); 
 	} 
-	public void fecha(final JLabel fecha){
-		int dia = calendario.get(Calendar.DAY_OF_MONTH);
-		int mes = calendario.get(Calendar.MONTH);
-		int ano = calendario.get(Calendar.YEAR);
-		mes += 1;
+	public String fecha(final JLabel fecha){
+		
 		String nombreMes;
 		if (mes == 1) {
 			nombreMes = "ENERO";
@@ -56,5 +58,6 @@ public class RelojFecha {
 		}
 		String cadena = dia + " / " + nombreMes + " / " + ano;
 		fecha.setText("<html><center>" + cadena); 
+		return nombreMes;
 	}
 }

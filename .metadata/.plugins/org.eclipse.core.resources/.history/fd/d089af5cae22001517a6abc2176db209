@@ -1,0 +1,558 @@
+package Reservaciones;
+
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+
+import java.awt.Color;
+
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
+import javax.swing.JLabel;
+
+import Conexiones.Conexion;
+import Imagenes.Img;
+import Principal.PanelPrincipal;
+import Qwertys.Comunes;
+
+import javax.swing.UIManager;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
+
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class PanelCamion extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	
+	public PanelCamion() {
+		setBackground(Color.WHITE);
+		setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Reservaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		setLayout(null);
+		
+		Img n= new Img();
+		Icon x=n.seat1();
+		Icon y=n.seat2();
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(128, 0, 0), 2));
+		panel.setBounds(22, 34, 775, 104);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblLblentrada = new JLabel("lblEntrada");
+		lblLblentrada.setIcon(new ImageIcon(PanelCamion.class.getResource("/Imagenes/etr1.png")));
+		lblLblentrada.setBounds(4, 4, 46, 54);
+		panel.add(lblLblentrada);
+		
+		JButton btn3 = new JButton();
+		btn3.setBounds(72, 62, 30, 30);
+		btn3.setIcon(x);
+		panel.add(btn3);
+		
+		JLabel label_2 = new JLabel("03");
+		label_2.setBounds(52, 70, 35, 14);
+		panel.add(label_2);
+		
+		JLabel label_3 = new JLabel("04");
+		label_3.setBounds(52, 19, 35, 14);
+		panel.add(label_3);
+		
+		JButton btn4 = new JButton();
+		btn4.setBounds(72, 11, 30, 30);
+		btn4.setIcon(x);
+		panel.add(btn4);
+		
+		JLabel label_26 = new JLabel("08");
+		label_26.setBounds(112, 19, 35, 14);
+		panel.add(label_26);
+		
+		JLabel label_27 = new JLabel("07");
+		label_27.setBounds(112, 70, 35, 14);
+		panel.add(label_27);
+		
+		JButton btn7 = new JButton();
+		btn7.setBounds(132, 62, 30, 30);
+		btn7.setIcon(x);
+		panel.add(btn7);
+		
+		JButton btn8 = new JButton();
+		btn8.setBounds(132, 11, 30, 30);
+		btn8.setIcon(x);
+		panel.add(btn8);
+		
+		JLabel label_28 = new JLabel("12");
+		label_28.setBounds(170, 20, 35, 14);
+		panel.add(label_28);
+		
+		JLabel label_29 = new JLabel("11");
+		label_29.setBounds(170, 71, 35, 14);
+		panel.add(label_29);
+		
+		JButton btn11 = new JButton();
+		btn11.setBounds(190, 63, 30, 30);
+		btn11.setIcon(x);
+		panel.add(btn11);
+		
+		JButton btn12 = new JButton();
+		btn12.setBounds(190, 12, 30, 30);
+		btn12.setIcon(x);
+		panel.add(btn12);
+		
+		JLabel label_30 = new JLabel("16");
+		label_30.setBounds(230, 19, 35, 14);
+		panel.add(label_30);
+		
+		JLabel label_31 = new JLabel("15");
+		label_31.setBounds(230, 70, 35, 14);
+		panel.add(label_31);
+		
+		JButton btn15 = new JButton();
+		btn15.setBounds(250, 62, 30, 30);
+		btn15.setIcon(x);
+		panel.add(btn15);
+		
+		JButton btn16 = new JButton();
+		btn16.setBounds(250, 11, 30, 30);
+		btn16.setIcon(x);
+		panel.add(btn16);
+		
+		JLabel label_32 = new JLabel("20");
+		label_32.setBounds(290, 19, 35, 14);
+		panel.add(label_32);
+		
+		JLabel label_33 = new JLabel("19");
+		label_33.setBounds(290, 70, 35, 14);
+		panel.add(label_33);
+		
+		JButton btn19 = new JButton();
+		btn19.setBounds(310, 62, 30, 30);
+		btn19.setIcon(x);
+		panel.add(btn19);
+		
+		JButton btn20 = new JButton();
+		btn20.setBounds(310, 11, 30, 30);
+		btn20.setIcon(x);
+		panel.add(btn20);
+		
+		JLabel label_34 = new JLabel("24");
+		label_34.setBounds(350, 19, 35, 14);
+		panel.add(label_34);
+		
+		JLabel label_35 = new JLabel("23");
+		label_35.setBounds(350, 70, 35, 14);
+		panel.add(label_35);
+		
+		JButton btn23 = new JButton();
+		btn23.setBounds(370, 62, 30, 30);
+		btn23.setIcon(x);
+		panel.add(btn23);
+		
+		JButton btn24 = new JButton();
+		btn24.setBounds(370, 11, 30, 30);
+		btn24.setIcon(x);
+		panel.add(btn24);
+		
+		JLabel label_36 = new JLabel("28");
+		label_36.setBounds(414, 19, 35, 14);
+		panel.add(label_36);
+		
+		JLabel label_37 = new JLabel("27");
+		label_37.setBounds(414, 70, 35, 14);
+		panel.add(label_37);
+		
+		JButton btn27 = new JButton();
+		btn27.setBounds(434, 62, 30, 30);
+		btn27.setIcon(x);
+		panel.add(btn27);
+		
+		JButton btn28 = new JButton();
+		btn28.setBounds(434, 11, 30, 30);
+		btn28.setIcon(x);
+		panel.add(btn28);
+		
+		JLabel label_38 = new JLabel("31");
+		label_38.setBounds(474, 70, 35, 14);
+		panel.add(label_38);
+		
+		JLabel label_39 = new JLabel("32");
+		label_39.setBounds(474, 19, 35, 14);
+		panel.add(label_39);
+		
+		JButton btn32 = new JButton();
+		btn32.setBounds(494, 11, 30, 30);
+		btn32.setIcon(x);
+		panel.add(btn32);
+		
+		JButton btn31 = new JButton();
+		btn31.setBounds(494, 62, 30, 30);
+		btn31.setIcon(x);
+		panel.add(btn31);
+		
+		JButton btn35 = new JButton();
+		btn35.setBounds(554, 62, 30, 30);
+		btn35.setIcon(x);
+		panel.add(btn35);
+		
+		JLabel label_40 = new JLabel("36");
+		label_40.setBounds(534, 19, 35, 14);
+		panel.add(label_40);
+		
+		JLabel label_41 = new JLabel("35");
+		label_41.setBounds(534, 70, 35, 14);
+		panel.add(label_41);
+		
+		JButton btn36 = new JButton();
+		btn36.setBounds(554, 11, 30, 30);
+		btn36.setIcon(x);
+		panel.add(btn36);
+		
+		JLabel label_42 = new JLabel("40");
+		label_42.setBounds(594, 19, 35, 14);
+		panel.add(label_42);
+		
+		JButton btn40 = new JButton();
+		btn40.setBounds(614, 11, 30, 30);
+		btn40.setIcon(x);
+		panel.add(btn40);
+		
+		JButton btn39 = new JButton();
+		btn39.setBounds(614, 62, 30, 30);
+		btn39.setIcon(x);
+		panel.add(btn39);
+		
+		JLabel label_43 = new JLabel("39");
+		label_43.setBounds(594, 70, 35, 14);
+		panel.add(label_43);
+		
+		JButton btn43 = new JButton();
+		btn43.setBounds(675, 62, 30, 30);
+		btn43.setIcon(x);
+		panel.add(btn43);
+		
+		JLabel label_44 = new JLabel("43");
+		label_44.setBounds(655, 70, 35, 14);
+		panel.add(label_44);
+		
+		JButton btn44 = new JButton();
+		btn44.setBounds(675, 11, 30, 30);
+		btn44.setIcon(x);
+		panel.add(btn44);
+		
+		JLabel label_45 = new JLabel("44");
+		label_45.setBounds(655, 19, 35, 14);
+		panel.add(label_45);
+		
+		JLabel label_46 = new JLabel("50");
+		label_46.setBounds(715, 20, 35, 14);
+		panel.add(label_46);
+		
+		JLabel label_47 = new JLabel("49");
+		label_47.setBounds(715, 71, 35, 14);
+		panel.add(label_47);
+		
+		JButton btn49 = new JButton();
+		btn49.setBounds(735, 63, 30, 30);
+		btn49.setIcon(x);
+		panel.add(btn49);
+		
+		JButton btn50 = new JButton();
+		btn50.setBounds(735, 12, 30, 30);
+		btn50.setIcon(x);
+		panel.add(btn50);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(128, 0, 0), 2));
+		panel_1.setBounds(22, 214, 775, 104);
+		add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblChofer = new JLabel("");
+		lblChofer.setIcon(new ImageIcon(PanelCamion.class.getResource("/Imagenes/conductor.png")));
+		lblChofer.setBounds(10, 62, 30, 31);
+		panel_1.add(lblChofer);
+		
+		JButton btn1 = new JButton();
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				cliente cliente=new cliente(1);
+				PanelPrincipal.contentPane.add(cliente);
+				cliente.setLocation(100, 10);
+				cliente.setVisible(true);
+				cliente.toFront();
+			}
+		});
+		btn1.setIcon(x);
+		btn1.setBounds(70, 62, 30, 30);
+		panel_1.add(btn1);
+		
+		JLabel label = new JLabel("01");
+		label.setBounds(50, 70, 35, 14);
+		panel_1.add(label);
+		
+		JButton btn2 = new JButton();
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btn2.setIcon(x);
+		btn2.setBounds(70, 11, 30, 30);
+		panel_1.add(btn2);
+		
+		JLabel label_1 = new JLabel("02");
+		label_1.setBounds(50, 19, 35, 14);
+		panel_1.add(label_1);
+		
+		JButton btn5 = new JButton();
+		btn5.setIcon(x);
+		btn5.setBounds(130, 62, 30, 30);
+		panel_1.add(btn5);
+		
+		JLabel label_4 = new JLabel("05");
+		label_4.setBounds(110, 70, 35, 14);
+		panel_1.add(label_4);
+		
+		JLabel label_5 = new JLabel("06");
+		label_5.setBounds(110, 19, 35, 14);
+		panel_1.add(label_5);
+		
+		JButton btn6 = new JButton();
+		btn6.setIcon(x);
+		btn6.setBounds(130, 11, 30, 30);
+		panel_1.add(btn6);
+		
+		JButton btn9 = new JButton();
+		btn9.setBounds(188, 63, 30, 30);
+		btn9.setIcon(x);
+		panel_1.add(btn9);
+		
+		JLabel label_6 = new JLabel("09");
+		label_6.setBounds(168, 71, 35, 14);
+		panel_1.add(label_6);
+		
+		JLabel label_7 = new JLabel("10");
+		label_7.setBounds(168, 20, 35, 14);
+		panel_1.add(label_7);
+		
+		JButton btn10 = new JButton();
+		btn10.setBounds(188, 12, 30, 30);
+		btn10.setIcon(x);
+		panel_1.add(btn10);
+		
+		JButton btn13 = new JButton();
+		btn13.setBounds(248, 62, 30, 30);
+		btn13.setIcon(x);
+		panel_1.add(btn13);
+		
+		JLabel label_8 = new JLabel("13");
+		label_8.setBounds(228, 70, 35, 14);
+		panel_1.add(label_8);
+		
+		JLabel label_9 = new JLabel("14");
+		label_9.setBounds(228, 19, 35, 14);
+		panel_1.add(label_9);
+		
+		JButton btn14 = new JButton();
+		btn14.setBounds(248, 11, 30, 30);
+		btn14.setIcon(x);
+		panel_1.add(btn14);
+		
+		JButton btn17 = new JButton();
+		btn17.setBounds(308, 62, 30, 30);
+		btn17.setIcon(x);
+		panel_1.add(btn17);
+		
+		JLabel label_10 = new JLabel("17");
+		label_10.setBounds(288, 70, 35, 14);
+		panel_1.add(label_10);
+		
+		JLabel label_11 = new JLabel("18");
+		label_11.setBounds(288, 19, 35, 14);
+		panel_1.add(label_11);
+		
+		JButton btn18 = new JButton();
+		btn18.setIcon(x);
+		btn18.setBounds(308, 11, 30, 30);
+		panel_1.add(btn18);
+		
+		JButton btn21 = new JButton();
+		btn21.setBounds(368, 62, 30, 30);
+		btn21.setIcon(x);
+		panel_1.add(btn21);
+		
+		JLabel label_12 = new JLabel("21");
+		label_12.setBounds(348, 70, 35, 14);
+		panel_1.add(label_12);
+		
+		JLabel label_13 = new JLabel("22");
+		label_13.setBounds(348, 19, 35, 14);
+		panel_1.add(label_13);
+		
+		JButton btn22 = new JButton();
+		btn22.setBounds(368, 11, 30, 30);
+		btn22.setIcon(x);
+		panel_1.add(btn22);
+		
+		JButton btn25 = new JButton();
+		btn25.setBounds(432, 62, 30, 30);
+		btn25.setIcon(x);
+		panel_1.add(btn25);
+		
+		JLabel label_14 = new JLabel("25");
+		label_14.setBounds(412, 70, 35, 14);
+		panel_1.add(label_14);
+		
+		JLabel label_15 = new JLabel("26");
+		label_15.setBounds(412, 19, 35, 14);
+		panel_1.add(label_15);
+		
+		JButton btn26 = new JButton();
+		btn26.setIcon(x);
+		btn26.setBounds(432, 11, 30, 30);
+		panel_1.add(btn26);
+		
+		JButton btn29 = new JButton();
+		btn29.setBounds(492, 62, 30, 30);
+		btn29.setIcon(x);
+		panel_1.add(btn29);
+		
+		JLabel label_16 = new JLabel("29");
+		label_16.setBounds(472, 70, 35, 14);
+		panel_1.add(label_16);
+		
+		JLabel label_17 = new JLabel("30");
+		label_17.setBounds(472, 19, 35, 14);
+		panel_1.add(label_17);
+		
+		JButton btn30 = new JButton();
+		btn30.setIcon(x);
+		btn30.setBounds(492, 11, 30, 30);
+		panel_1.add(btn30);
+		
+		JButton btn33 = new JButton();
+		btn33.setBounds(552, 62, 30, 30);
+		btn33.setIcon(x);
+		panel_1.add(btn33);
+		
+		JLabel label_18 = new JLabel("33");
+		label_18.setBounds(532, 70, 35, 14);
+		panel_1.add(label_18);
+		
+		JLabel label_19 = new JLabel("34");
+		label_19.setBounds(532, 19, 35, 14);
+		panel_1.add(label_19);
+		
+		JButton btn34 = new JButton();
+		btn34.setBounds(552, 11, 30, 30);
+		btn34.setIcon(x);
+		panel_1.add(btn34);
+		
+		JButton btn37 = new JButton();
+		btn37.setBounds(612, 62, 30, 30);
+		btn37.setIcon(x);
+		panel_1.add(btn37);
+		
+		JLabel label_20 = new JLabel("37");
+		label_20.setBounds(592, 70, 35, 14);
+		panel_1.add(label_20);
+		
+		JLabel label_21 = new JLabel("38");
+		label_21.setBounds(592, 19, 35, 14);
+		panel_1.add(label_21);
+		
+		JButton btn38 = new JButton();
+		btn38.setBounds(612, 11, 30, 30);
+		btn38.setIcon(x);
+		panel_1.add(btn38);
+		
+		JButton btn41 = new JButton();
+		btn41.setBounds(673, 62, 30, 30);
+		btn41.setIcon(x);
+		panel_1.add(btn41);
+		
+		JLabel label_22 = new JLabel("41");
+		label_22.setBounds(653, 70, 35, 14);
+		panel_1.add(label_22);
+		
+		JLabel label_23 = new JLabel("42");
+		label_23.setBounds(653, 19, 35, 14);
+		panel_1.add(label_23);
+		
+		JButton btn42 = new JButton();
+		btn42.setBounds(673, 11, 30, 30);
+		btn42.setIcon(x);
+		panel_1.add(btn42);
+		
+		JButton btn45 = new JButton();
+		btn45.setBounds(733, 63, 30, 30);
+		btn45.setIcon(x);
+		panel_1.add(btn45);
+		
+		JLabel label_24 = new JLabel("45");
+		label_24.setBounds(713, 71, 35, 14);
+		panel_1.add(label_24);
+		
+		JLabel label_25 = new JLabel("46");
+		label_25.setBounds(713, 20, 35, 14);
+		panel_1.add(label_25);
+		
+		JButton btn46 = new JButton();
+		btn46.setBounds(733, 12, 30, 30);
+		btn46.setIcon(x);
+		panel_1.add(btn46);
+		
+		JLabel lblPasillo = new JLabel("Pasillo");
+		lblPasillo.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblPasillo.setBounds(386, 168, 175, 14);
+		add(lblPasillo);
+		
+		JButton btn48 = new JButton();
+		btn48.setBounds(758, 140, 30, 30);
+		btn48.setIcon(x);
+		add(btn48);
+		
+		JButton btn47 = new JButton();
+		btn47.setBounds(758, 181, 30, 30);
+		btn47.setIcon(x);
+		add(btn47);
+		
+		JLabel label_48 = new JLabel("48");
+		label_48.setBounds(735, 149, 35, 14);
+		add(label_48);
+		
+		JLabel label_49 = new JLabel("47");
+		label_49.setBounds(735, 189, 35, 14);
+		add(label_49);
+
+		Conexion cx=new Conexion();
+		Connection cn=cx.conexion();
+		String sql1="";
+		Comunes q=new Comunes();
+		int id_salida=NuevaSalida.id_salida;
+		sql1=q.SelectWhere("*", "venta_voleto", "id_salida", String.valueOf(id_salida));
+		Statement comando;
+		try {
+			comando = cn.createStatement();
+			ResultSet rs01= comando.executeQuery(sql1);	
+			while(rs01.next()){
+				int asiento=rs01.getInt("asiento");
+				if(asiento==8)btn8.setIcon(y);
+			}
+			
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+}

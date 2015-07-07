@@ -8,27 +8,43 @@ import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 
+import Conexiones.Conexion;
 import Imagenes.Img;
+import Principal.PanelPrincipal;
+import Qwertys.Comunes;
+
 import javax.swing.UIManager;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+
 import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class PanelCamion extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
+	Img n= new Img();
+	Icon x=n.seat1();
+	Icon y=n.seat2();
+	public JButton btn1 = new JButton();
+	
 	public PanelCamion() {
 		setBackground(Color.WHITE);
 		setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Reservaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setLayout(null);
 		
-		Img n= new Img();
-		Icon x=n.seat1();
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(128, 0, 0), 2));
@@ -268,7 +284,17 @@ public class PanelCamion extends JPanel {
 		lblChofer.setBounds(10, 62, 30, 31);
 		panel_1.add(lblChofer);
 		
-		JButton btn1 = new JButton();
+		
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				cliente cliente=new cliente(1);
+				PanelPrincipal.contentPane.add(cliente);
+				cliente.setLocation(100, 10);
+				cliente.setVisible(true);
+				cliente.toFront();
+			}
+		});
 		btn1.setIcon(x);
 		btn1.setBounds(70, 62, 30, 30);
 		panel_1.add(btn1);
@@ -278,6 +304,11 @@ public class PanelCamion extends JPanel {
 		panel_1.add(label);
 		
 		JButton btn2 = new JButton();
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btn2.setIcon(x);
 		btn2.setBounds(70, 11, 30, 30);
 		panel_1.add(btn2);
@@ -506,7 +537,30 @@ public class PanelCamion extends JPanel {
 		JLabel label_49 = new JLabel("47");
 		label_49.setBounds(735, 189, 35, 14);
 		add(label_49);
-
+		ver();
+		
 	}
-
+	public void ver(){
+		int id_salida=34;
+		JOptionPane.showMessageDialog(null, "entre "+String.valueOf(id_salida));
+		Conexion cx=new Conexion();
+		Connection cn=cx.conexion();
+		String sql1="";
+		Comunes q=new Comunes();
+		//int id_salida=NuevaSalida.id_salida;
+		sql1=q.SelectWhere("*", "venta_voleto", "id_salida", String.valueOf(id_salida));
+		System.out.println(sql1);
+		Statement comando;
+		try {
+			comando = cn.createStatement();
+			ResultSet rs01= comando.executeQuery(sql1);	
+			while(rs01.next()){
+				int asiento=rs01.getInt("asiento");
+				if(asiento==1)btn1.setIcon(y);
+			}
+			
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
 }

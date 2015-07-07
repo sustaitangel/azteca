@@ -27,7 +27,7 @@ import java.awt.event.ActionEvent;
 
 public class PanelPrincipal extends JFrame {
 
-	private JDesktopPane contentPane;
+	public static JDesktopPane contentPane;
 	JLabel lblHora;
 	RelojFecha relojFecha = new RelojFecha();
 

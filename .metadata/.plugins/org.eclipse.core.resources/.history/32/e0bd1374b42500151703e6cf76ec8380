@@ -541,12 +541,13 @@ public class PanelCamion extends JPanel {
 		
 	}
 	public void ver(){
-		int id_salida=0;
+		int id_salida=34;
+		JOptionPane.showMessageDialog(null, "entre "+String.valueOf(id_salida));
 		Conexion cx=new Conexion();
 		Connection cn=cx.conexion();
 		String sql1="";
 		Comunes q=new Comunes();
-		id_salida=NuevaSalida.id_salida;
+		//int id_salida=NuevaSalida.id_salida;
 		sql1=q.SelectWhere("*", "venta_voleto", "id_salida", String.valueOf(id_salida));
 		System.out.println(sql1);
 		Statement comando;

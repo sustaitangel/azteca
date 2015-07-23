@@ -248,20 +248,17 @@ public final class PanelReservaciones extends JInternalFrame {
 		String fechapob=ano+"-"+month+"-"+day;
 		ObtenerSalida ob=new ObtenerSalida();
 		int tipo=ob.salida(lblSalida, lblDia, fechapob);
-		PanelSalidas x=new PanelSalidas(fechapob);
 		if(tipo==1){
-			x.setVisible(false);
 			lblSalida.setText("¿Cambiar Salida?");
 			lblSalida.setForeground(new Color(139, 0, 0));
-			x.setBounds(420, 451,600,150);
+			PanelSalidas x=new PanelSalidas();
+			x.setBounds(220, 255,560,120);
 			panelPrin.add(x);
 			panelPrin.updateUI();
-			x.setVisible(true);
+			
 			
 		}
 		if(tipo==2){
-			x.setVisible(false);
-			panelPrin.updateUI();
 			NuevaSalida ns=new NuevaSalida();
 			lblFecha.setText("");
 			ns.nueva(btnProb, Panel_alta, lblSalida, tipo);
@@ -276,8 +273,6 @@ public final class PanelReservaciones extends JInternalFrame {
 			ns.guardarSalida(btnGuardar, txtCamion,txtTelefono,txtChofer,fechapob);
 			}
 		if(tipo==3){
-			x.setVisible(false);
-			panelPrin.updateUI();
 			if(!lblDia.getText().equals("")){
 				lblSalida.setText(lblDia.getText()+" No hay Salida ¿Agendar Especial?");
 				lblSalida.setForeground(new Color(255, 0, 0));

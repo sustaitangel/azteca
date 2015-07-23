@@ -1,0 +1,14 @@
+package Reservaciones;
+
+import javax.swing.JPanel;
+
+public class PanelSalidas extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelSalidas() {
+
+	}
+
+}

@@ -67,7 +67,7 @@ public class NuevaSalida {
 				PanelReservaciones.panelPrin.add(n);
 				PanelReservaciones.panelPrin.updateUI();
 				
-				//System.out.println(guardar);
+				System.out.println(guardar);
 				comando1.execute(guardar);
 				String salida=q.selectand2("id_salida","salida", "fecha_salida", fechaDtb, "id_camion", txtCamion.getText());
 				ResultSet rs02= comando.executeQuery(salida);

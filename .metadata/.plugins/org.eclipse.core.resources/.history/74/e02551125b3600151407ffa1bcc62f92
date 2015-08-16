@@ -41,7 +41,7 @@ public class Conexion {
 			   }
 			   bandera=bandera+1;
 		   }
-		   String BasedeDatos="0fe_15870877_azteca";
+		   String BasedeDatos="azteca";
 		   Cadena="jdbc:mysql://"+servidor+"/"+BasedeDatos;
 			}
 		   

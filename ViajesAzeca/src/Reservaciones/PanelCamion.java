@@ -255,24 +255,6 @@ public class PanelCamion extends JPanel {
 		label_45.setBounds(655, 19, 35, 14);
 		panel.add(label_45);
 		
-		JLabel label_46 = new JLabel("50");
-		label_46.setBounds(715, 20, 35, 14);
-		panel.add(label_46);
-		
-		JLabel label_47 = new JLabel("49");
-		label_47.setBounds(715, 71, 35, 14);
-		panel.add(label_47);
-		
-		JButton btn49 = new JButton();
-		btn49.setBounds(735, 63, 30, 30);
-		btn49.setIcon(x);
-		panel.add(btn49);
-		
-		JButton btn50 = new JButton();
-		btn50.setBounds(735, 12, 30, 30);
-		btn50.setIcon(x);
-		panel.add(btn50);
-		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(128, 0, 0), 2));
 		panel_1.setBounds(22, 214, 775, 104);
@@ -519,24 +501,6 @@ public class PanelCamion extends JPanel {
 		lblPasillo.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblPasillo.setBounds(386, 168, 175, 14);
 		add(lblPasillo);
-		
-		JButton btn48 = new JButton();
-		btn48.setBounds(758, 140, 30, 30);
-		btn48.setIcon(x);
-		add(btn48);
-		
-		JButton btn47 = new JButton();
-		btn47.setBounds(758, 181, 30, 30);
-		btn47.setIcon(x);
-		add(btn47);
-		
-		JLabel label_48 = new JLabel("48");
-		label_48.setBounds(735, 149, 35, 14);
-		add(label_48);
-		
-		JLabel label_49 = new JLabel("47");
-		label_49.setBounds(735, 189, 35, 14);
-		add(label_49);
 		ver();
 		
 	}

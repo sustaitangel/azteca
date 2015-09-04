@@ -126,7 +126,7 @@ public final class PanelReservaciones extends JInternalFrame {
 				Panel_alta.add(lblTelefono);
 				
 				JLabel Asientos = new JLabel("Reservados:");
-				Asientos.setBounds(10, 213, 106, 14);
+				Asientos.setBounds(10, 245, 106, 14);
 				Panel_alta.add(Asientos);
 				
 						String fecha=RelojFecha.dia+" / "+mes.fecha(lblFecha)+" / "+RelojFecha.ano;
@@ -159,7 +159,7 @@ public final class PanelReservaciones extends JInternalFrame {
 						txtReservados.setEditable(false);
 						txtReservados.setText("0");
 						txtReservados.setVisible(false);
-						txtReservados.setBounds(107, 210, 30, 20);
+						txtReservados.setBounds(107, 242, 30, 20);
 						Panel_alta.add(txtReservados);
 						txtReservados.setColumns(10);
 						
@@ -167,6 +167,15 @@ public final class PanelReservaciones extends JInternalFrame {
 						btnGuardar.setBounds(301, 295, 89, 23);
 						btnGuardar.setVisible(false);
 						Panel_alta.add(btnGuardar);
+						
+						JLabel lblDestino = new JLabel("Destino:");
+						lblDestino.setBounds(10, 212, 46, 14);
+						Panel_alta.add(lblDestino);
+						
+						JComboBox comboBox = new JComboBox();
+						comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccione Estado", "Bakersfield", "Bloomington", "Coachella Indio", "El Monte", "El Paso", "Las Vegas", "Los Angeles", "Pacoima", "Phoenix"}));
+						comboBox.setBounds(107, 208, 132, 20);
+						Panel_alta.add(comboBox);
 						
 						JLabel lblDa = new JLabel("D\u00EDa: ");
 						lblDa.setBounds(10, 29, 46, 14);

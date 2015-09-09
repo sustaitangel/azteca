@@ -1,0 +1,35 @@
+package Reservaciones;
+
+import java.awt.Color;
+
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.TitledBorder;
+
+public class Panel_salida extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Panel_salida() {
+		JPanel Panel_salida = new JPanel();
+		Panel_salida.setBounds(10, 74, 400, 69);
+		Panel_salida.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Salida", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		Panel_salida.setBackground(Color.WHITE);
+		Panel_salida.setLayout(null);
+		
+		JComponent btnProb = null;
+		btnProb.setBounds(285, 21, 89, 23);
+		btnProb.setVisible(false);
+		Panel_salida.add(btnProb);
+		
+		JComponent lblSalida = null;
+		lblSalida.setForeground(new Color(139, 0, 0));
+		lblSalida.setBounds(10, 21, 277, 23);
+		Panel_salida.add(lblSalida);		
+		
+		
+	}
+
+}

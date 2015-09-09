@@ -21,7 +21,6 @@ public class ObtenerSalida {
 		Statement comando;
 		Comunes n= new Comunes();
 		String sql=n.SelectWhere("*", Comunes.tablas[2], "fecha_salida", fecha);
-		System.out.println(sql);
 		try {
 			comando=(Statement) cn.createStatement();
 			ResultSet rs= ((java.sql.Statement) comando).executeQuery(sql);
@@ -38,7 +37,7 @@ public class ObtenerSalida {
 		}
 		return esta;
 	}
-	public int salida(JLabel lblSalida, JLabel lblDia, String fecha){
+	public int salida(JLabel lblDia, String fecha){
 		int esta=existe(fecha);
 		int tipo=0;
 		if(esta==1){

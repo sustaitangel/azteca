@@ -1,0 +1,14 @@
+package Reservaciones;
+
+import javax.swing.JPanel;
+
+public class agregar extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public agregar() {
+
+	}
+
+}

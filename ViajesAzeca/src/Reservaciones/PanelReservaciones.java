@@ -1,51 +1,37 @@
 package Reservaciones;
 
-import java.awt.EventQueue;
-import java.awt.Toolkit;
-import java.beans.PropertyVetoException;
-
-import javax.swing.JInternalFrame;
-import javax.swing.ImageIcon;
-
 import java.awt.Color;
-
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
-import Atxy2k.CustomTextField.RestrictedTextField;
-import Principal.RelojFecha;
-
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.border.TitledBorder;
+
+import Reservaciones.agregar;
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 public final class PanelReservaciones extends JInternalFrame {
 	public static JTextField txtAno;
 	public JLabel lblDia = new JLabel();
 	public JLabel lblSalida = new JLabel("");
 	JButton btnProb = new JButton("prob");
-	JPanel Panel_alta = new JPanel();
 	public static JComboBox cmbdia = new JComboBox();
 	public static JComboBox cmbMes = new JComboBox();
-	private JTextField txtCamion;
-	private JTextField txtChofer;
-	private JTextField txtTelefono;
-	private JTextField txtReservados;
-	JButton btnGuardar = new JButton("Guardar");
-	JLabel lblFecha = new JLabel("");
 	static JPanel panelPrin = new JPanel();
+	public agregar panel_pasado =new agregar();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -68,19 +54,13 @@ public final class PanelReservaciones extends JInternalFrame {
 	public PanelReservaciones() {
 		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
-		
-		RelojFecha mes=new RelojFecha();
-		
+				
 		panelPrin.setBackground(Color.WHITE);
 		panelPrin.setBounds(0, 0, 1270, 633);
 		getContentPane().add(panelPrin);
 		panelPrin.setLayout(null);
 				lblDia.setBounds(410, 12, 400, 41);
 				panelPrin.add(lblDia);
-		
-				
-		
-				
 				
 				lblDia.setForeground(new Color(139, 0, 0));
 				lblDia.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
@@ -92,90 +72,18 @@ public final class PanelReservaciones extends JInternalFrame {
 				panel.setBackground(Color.WHITE);
 				panel.setLayout(null);
 				
-				
+				btnProb.setBounds(285, 21, 89, 23);
+				btnProb.setVisible(false);
+				panel.add(btnProb);
 				
 				lblSalida.setForeground(new Color(139, 0, 0));
 				lblSalida.setBounds(10, 21, 277, 23);
 				panel.add(lblSalida);		
 				
-				btnProb.setBounds(285, 21, 89, 23);
-				btnProb.setVisible(false);
-				panel.add(btnProb);		
-				Panel_alta.setBounds(10, 154, 400, 468);
-				panelPrin.add(Panel_alta);
+				panel_pasado.setBounds(10, 154, 400, 468);
+				panel_pasado.setVisible(true);
+				panel_pasado.setFocusable(true);
 				
-				Panel_alta.setBackground(Color.WHITE);
-				Panel_alta.setBorder(new TitledBorder(null, "Datos Generales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				Panel_alta.setLayout(null);
-				
-				JLabel lblDia_1 = new JLabel("Fecha:");
-				lblDia_1.setBounds(10, 41, 71, 14);
-				Panel_alta.add(lblDia_1);
-				
-				JLabel lblCamin = new JLabel("Cami\u00F3n:");
-				lblCamin.setBounds(10, 87, 71, 14);
-				Panel_alta.add(lblCamin);
-				
-				JLabel lblChofer = new JLabel("Ch\u00F3fer:");
-				lblChofer.setBounds(10, 131, 71, 14);
-				Panel_alta.setVisible(false);
-				Panel_alta.add(lblChofer);
-				
-				JLabel lblTelefono = new JLabel("Tel\u00E9fono:");
-				lblTelefono.setBounds(10, 174, 71, 14);
-				Panel_alta.add(lblTelefono);
-				
-				JLabel Asientos = new JLabel("Reservados:");
-				Asientos.setBounds(10, 245, 106, 14);
-				Panel_alta.add(Asientos);
-				
-						String fecha=RelojFecha.dia+" / "+mes.fecha(lblFecha)+" / "+RelojFecha.ano;
-						lblFecha.setText(fecha);
-						lblFecha.setBounds(107, 41, 111, 14);
-						lblFecha.setVisible(false);
-						Panel_alta.add(lblFecha);
-						
-						txtCamion = new JTextField();
-						RestrictedTextField n=new RestrictedTextField(txtCamion);
-						txtCamion.setVisible(false);
-						txtCamion.setBounds(107, 84, 30, 20);
-						Panel_alta.add(txtCamion);
-						txtCamion.setColumns(10);
-						
-						txtChofer = new JTextField();
-						txtChofer.setBounds(107, 128, 111, 20);
-						txtChofer.setVisible(false);
-						Panel_alta.add(txtChofer);
-						txtChofer.setColumns(10);
-						
-						txtTelefono = new JTextField();
-						RestrictedTextField y=new RestrictedTextField(txtTelefono);
-						txtTelefono.setVisible(false);
-						txtTelefono.setBounds(107, 171, 86, 20);
-						Panel_alta.add(txtTelefono);
-						txtTelefono.setColumns(10);
-						
-						txtReservados = new JTextField();
-						txtReservados.setEditable(false);
-						txtReservados.setText("0");
-						txtReservados.setVisible(false);
-						txtReservados.setBounds(107, 242, 30, 20);
-						Panel_alta.add(txtReservados);
-						txtReservados.setColumns(10);
-						
-						
-						btnGuardar.setBounds(301, 295, 89, 23);
-						btnGuardar.setVisible(false);
-						Panel_alta.add(btnGuardar);
-						
-						JLabel lblDestino = new JLabel("Destino:");
-						lblDestino.setBounds(10, 212, 46, 14);
-						Panel_alta.add(lblDestino);
-						
-						JComboBox comboBox = new JComboBox();
-						comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccione Estado", "Bakersfield", "Bloomington", "Coachella Indio", "El Monte", "El Paso", "Las Vegas", "Los Angeles", "Pacoima", "Phoenix"}));
-						comboBox.setBounds(107, 208, 132, 20);
-						Panel_alta.add(comboBox);
 						
 						JLabel lblDa = new JLabel("D\u00EDa: ");
 						lblDa.setBounds(10, 29, 46, 14);
@@ -187,7 +95,7 @@ public final class PanelReservaciones extends JInternalFrame {
 						cmbdia.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								llenar();
-								limpiar();
+								
 							}
 						});
 						cmbdia.setBackground(Color.WHITE);
@@ -202,7 +110,6 @@ public final class PanelReservaciones extends JInternalFrame {
 						cmbMes.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								llenar();
-								limpiar();
 							}
 						});
 						
@@ -220,7 +127,6 @@ public final class PanelReservaciones extends JInternalFrame {
 							@Override
 							public void keyTyped(KeyEvent arg0) {
 								llenar();
-								limpiar();
 							}
 						});
 						txtAno.setColumns(10);
@@ -228,9 +134,7 @@ public final class PanelReservaciones extends JInternalFrame {
 		restricted.setLimit(4);
 		restricted.setOnlyNums(true);
 		
-		n.setOnlyNums(true);
-		y.setOnlyNums(true);
-		
+	
 		setTitle("--Reservaciones Viajes Azteca--");
 		setFrameIcon(new ImageIcon(PanelReservaciones.class.getResource("/Imagenes/bus.png")));
 		setIconifiable(true);
@@ -256,9 +160,10 @@ public final class PanelReservaciones extends JInternalFrame {
 			}
 		String fechapob=ano+"-"+month+"-"+day;
 		ObtenerSalida ob=new ObtenerSalida();
-		int tipo=ob.salida(lblSalida, lblDia, fechapob);
+		int tipo=ob.salida(lblDia, fechapob);
 		PanelSalidas x=new PanelSalidas(fechapob);
 		if(tipo==1){
+			
 			x.setVisible(false);
 			lblSalida.setText("¿Cambiar Salida?");
 			lblSalida.setForeground(new Color(139, 0, 0));
@@ -272,17 +177,13 @@ public final class PanelReservaciones extends JInternalFrame {
 			x.setVisible(false);
 			panelPrin.updateUI();
 			NuevaSalida ns=new NuevaSalida();
-			lblFecha.setText("");
-			ns.nueva(btnProb, Panel_alta, lblSalida, tipo);
+			lblSalida.setText("Agendar Nueva Salida");
+			btnProb.setVisible(true);
+			btnProb.setText("Agregar");
+			agregar n1=new agregar();
+			ns.nueva(btnProb, lblSalida, tipo, panel_pasado);
 			lblSalida.setVisible(true);
-			lblFecha.setVisible(true);
-			lblFecha.setText(fecha);
-			txtCamion.setVisible(true);
-			txtChofer.setVisible(true);
-			txtTelefono.setVisible(true);
-			txtReservados.setVisible(true);
-			btnGuardar.setVisible(true);
-			ns.guardarSalida(btnGuardar, txtCamion,txtTelefono,txtChofer,fechapob);
+			//ns.guardarSalida(btnGuardar, txtCamion, txtTelefono, txtChofer, fechapob,);
 			}
 		if(tipo==3){
 			x.setVisible(false);
@@ -297,7 +198,10 @@ public final class PanelReservaciones extends JInternalFrame {
 		}
 		}
 	}
-	public void limpiar(){
-		Panel_alta.setVisible(false);
+
+	public static JPanel agregar(){
+		agregar n=new agregar();
+		panelPrin.add(n);
+		return n;
 	}
 }
